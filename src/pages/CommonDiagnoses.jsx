@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import RufflePlayer from '../components/RufflePlayer';
 import { ChevronDown, ChevronUp, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+
+
+  // ---------------------------
+  // this page as built dynamically inside of the Storyblok platform with reusable components
+  // ---------------------------
+
 
 const CommonBackDiagnoses = () => {
+
   const [openItem, setOpenItem] = useState(null);
   const [openProcedure, setOpenProcedure] = useState(null);
 
@@ -185,7 +191,7 @@ const CommonBackDiagnoses = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <Helmet>
+      {/* <Helmet>
         <title>Common Spine Diagnoses - New York Center for Spinal Disorders</title>
         <meta name="description" content="Explore common spine conditions and their treatments at the New York Center for Spinal Disorders. Expert care for herniated discs, spinal stenosis, and more." />
         <meta name="keywords" content="spinal disorders and treatment, herniated discs, back pain, spine conditions, New York, spine specialists, orthopedic care, spine care" />
@@ -205,7 +211,7 @@ const CommonBackDiagnoses = () => {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="theme-color" content="#4a90e2" />
         <meta name="mobile-web-app-capable" content="yes" />
-      </Helmet>
+      </Helmet> */}
 
       <Header />
       

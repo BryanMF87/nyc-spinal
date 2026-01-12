@@ -1,11 +1,21 @@
-import { StoryblokComponent } from '@storyblok/react';
+import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
+import SEO from "./SEO";
 
-export default function Page({ blok }) {
- return (
-   <main>
-     {blok.body?.map((nestedBlok) => (
-       <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-     ))}
-   </main>
- );
-}
+const Page = ({ blok, story }) => {
+  const seoBlok = blok.seo?.[0];
+
+  return (
+    <div {...storyblokEditable(blok)}>
+      {seoBlok && <SEO blok={seoBlok} story={story} />}
+
+      {blok.body?.map((childBlok) => (
+        <StoryblokComponent
+          blok={childBlok}
+          key={childBlok._uid}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default Page;

@@ -1,33 +1,11 @@
-import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import { Helmet } from 'react-helmet';
-import { Shield } from 'lucide-react';
+import { render } from 'storyblok-rich-text-react-renderer';
+import { Icon } from '@iconify/react/dist/iconify.js';
 
-const Section1557Statement = () => {
-  const sections = [
-    {
-      icon: Shield,
-      title: "Section 1557 Statement",
-      content: `Non-Discrimination Notice
-
-The New York Center for Spinal Disorders complies with Section 1557 of the Affordable Care Act, which prohibits discrimination on the basis of race, color, national origin, sex, age, or disability in health programs and activities. We are committed to ensuring that our patients receive the highest quality of care and services in a welcoming, inclusive, and accessible environment.
-
-If you need assistance or have questions regarding accessibility or accommodations, please contact us at [insert contact number/email] or visit our office. We provide free language assistance services, including qualified interpreters, and provide auxiliary aids and services, such as alternative formats, to help with effective communication.
-
-If you believe that we have failed to provide adequate access to services or have discriminated against you in violation of Section 1557, you have the right to file a complaint. For more information on how to file a complaint, please contact: 
-
-New York Center for Spinal Disorders
-425 East 79th Street, Suite 1H
-New York, NY 10075
-Email: compliance@spine-nyc.com
-Phone: (212) 249-3840`
-    }
-  ];
+const Section1557Statement = ({blok}) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <Helmet>
+      {/* <Helmet>
         <title>Section 1557 Statement - New York Center for Spinal Disorders</title>
         <meta
           name="description"
@@ -59,9 +37,7 @@ Phone: (212) 249-3840`
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="theme-color" content="#4a90e2" />
         <meta name="mobile-web-app-capable" content="yes" />
-      </Helmet>
-
-      <Header />
+      </Helmet> */}
 
       <div className="relative h-[30vh] bg-gradient-to-r from-[#003666] to-[#0062B1]">
         <div className="absolute inset-0 opacity-20">
@@ -70,10 +46,10 @@ Phone: (212) 249-3840`
         <div className="relative h-full max-w-6xl mx-auto px-4 flex items-center">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Section 1557 Statement
+              {blok.hero_headline}
             </h1>
             <p className="text-xl text-blue-100">
-              Our commitment to non-discrimination
+              {blok.hero_subheadline}
             </p>
           </div>
         </div>
@@ -81,21 +57,18 @@ Phone: (212) 249-3840`
 
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="space-y-12">
-          {sections.map((section, idx) => (
-            <div key={idx} className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
-              <div className="flex items-center gap-4 mb-4">
-                <section.icon className="w-8 h-8 text-blue-600" />
-                <h2 className="text-2xl font-bold text-blue-900">{section.title}</h2>
-              </div>
-              <p className="text-gray-700 whitespace-pre-line leading-relaxed">
-                {section.content}
-              </p>
+          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+            <div className="flex items-center gap-4 mb-4">
+              <Icon icon={blok.icon.icon} className="w-8 h-8 text-blue-600" />
+              <h2 className="text-2xl font-bold text-blue-900">{blok.statement_headline}</h2>
             </div>
-          ))}
+            <div className="richtext">
+              {render(blok.statement_text)}
+            </div>
+          </div>
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };

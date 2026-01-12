@@ -1,47 +1,13 @@
-import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
-import {
-  FileText,
-  ScrollText,
-  Pill,
-  CreditCard,
-  ClipboardList,
-  ChevronRight,
-  Calendar
-} from 'lucide-react';
+import { Icon } from '@iconify/react/dist/iconify.js';
+import { ChevronRight } from 'lucide-react';
+import { render } from 'storyblok-rich-text-react-renderer';
 
-import { Helmet } from 'react-helmet';
-
-
-const BeforeYourVisit = () => {
-  const requiredItems = [
-    {
-      icon: FileText,
-      title: "X-rays (Films or Disc) and X-ray reports",
-      description: "Recent imaging helps us better understand your condition"
-    },
-    {
-      icon: ScrollText,
-      title: "Written reports",
-      description: "By your doctor or another specialist"
-    },
-    {
-      icon: Pill,
-      title: "List of medications",
-      description: "Include all current medications and supplements"
-    },
-    {
-      icon: CreditCard,
-      title: "Insurance card/information",
-      description: "Ensure your coverage information is up to date"
-    }
-  ];
+const BeforeYourVisit = ({blok}) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
-      <Helmet>
+      {/* <Helmet>
         <title>Before Your Visit - New York Center for Spinal Disorders</title>
         <meta name="description" content="Get ready for your visit with Dr. Nathaniel Tindel. Learn what to bring, tips for a successful appointment, and how to prepare for your spine care consultation." />
         <meta name="keywords" content="spinal disorders, scoliosis treatment, herniated discs, back pain, spine conditions, New York, Dr. Tindel, orthopedic surgeon, spine care, scoliosis in teens" />
@@ -61,22 +27,21 @@ const BeforeYourVisit = () => {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="theme-color" content="#4a90e2" />
         <meta name="mobile-web-app-capable" content="yes" />
-      </Helmet>
-      <Header />
+      </Helmet> */}
 
       <div className="relative h-[40vh] bg-gradient-to-r from-[#003666] to-[#0062B1]">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-[#003666]/90 to-[#0062B1]/90" />
           <img
-            src="/images/facility.png"
-            alt="Medical office background"
+            src={`${blok.hero_image.filename}`}
+            alt={`${blok.hero_image.alt}`}
             className="w-full h-full object-cover opacity-20"
           />
         </div>
         <div className="relative h-full max-w-6xl mx-auto px-4 flex items-center">
           <div>
-            <h1 className="text-5xl font-bold text-white mb-4">Prepare for Your Visit</h1>
-            <p className="text-2xl text-sky-100">Everything you need for a successful first appointment</p>
+            <h1 className="text-5xl font-bold text-white mb-4">{blok.hero_headline}</h1>
+            <p className="text-2xl text-sky-100">{blok.hero_subheadline}</p>
           </div>
         </div>
       </div>
@@ -85,20 +50,20 @@ const BeforeYourVisit = () => {
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-12">
             <div>
-              <h2 className="text-3xl font-bold text-[#003666] mb-8">Medical Records</h2>
+              <h2 className="text-3xl font-bold text-[#003666] mb-8">{blok.records_headline}</h2>
               <p className="text-lg text-gray-700 mb-8">
-                For your first appointment, please bring any or all of the following:
+                {blok.records_subheadline}
               </p>
               <div className="grid sm:grid-cols-2 gap-6">
-                {requiredItems.map((item, index) => (
-                  <div key={index} className="bg-white p-6 rounded-xl shadow-lg">
+                {blok.records_list.map((record) => (
+                  <div key={record._uid} className="bg-white p-6 rounded-xl shadow-lg">
                     <div className="flex items-start space-x-4">
                       <div className="bg-sky-100 p-3 rounded-lg">
-                        <item.icon className="w-6 h-6 text-[#0062B1]" />
+                        <Icon icon={record.icon.icon} className="w-6 h-6 text-[#0062B1]" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-[#003666] mb-2">{item.title}</h3>
-                        <p className="text-gray-600">{item.description}</p>
+                        <h3 className="text-lg font-semibold text-[#003666] mb-2">{record.text}</h3>
+                        <p className="text-gray-600">{record.description}</p>
                       </div>
                     </div>
                   </div>
@@ -109,12 +74,12 @@ const BeforeYourVisit = () => {
             <div className="bg-gradient-to-br from-sky-50 to-[#0062B1]/10 p-8 rounded-2xl">
               <div className="flex items-start space-x-4">
                 <div className="bg-white p-3 rounded-lg">
-                  <ClipboardList className="w-6 h-6 text-[#0062B1]" />
+                  <Icon icon={blok.note_icon.icon} className="w-6 h-6 text-[#0062B1]" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#003666] mb-4">Important Note</h3>
+                  <h3 className="text-xl font-bold text-[#003666] mb-4">{blok.note_headline}</h3>
                   <p className="text-gray-700">
-                    If you haven't had any tests done yet, our team will order what you need based on what he finds in his initial exam. It's easy to forget important questions when you're taking in a lot of information, so our suggestion is to write down the questions you want to ask prior to your appointment.
+                    {blok.note_paragraph}
                   </p>
                 </div>
               </div>
@@ -124,55 +89,42 @@ const BeforeYourVisit = () => {
           <div className="space-y-8">
             <div className="bg-gradient-to-br from-[#003666] to-[#0062B1] p-6 rounded-xl text-white">
               <div className="flex items-center space-x-3 mb-4">
-                <Calendar className="w-6 h-6" />
-                <h3 className="text-xl font-bold">Ready to Schedule?</h3>
+                <Icon icon={blok.appointment_icon.icon} className="w-6 h-6" />
+                <h3 className="text-xl text-white mb-0 font-bold">{blok.appointment_headline}</h3>
               </div>
               <p className="text-sky-100 mb-6">
-                Contact us to schedule your consultation with us.
+                {blok.appointment_subheadline}
               </p>
               <Link
-                to="/contact"
+                to={`/${blok.appointment_link.cachedUrl}`}
                 className="block w-full text-center bg-white text-[#003666] py-3 rounded-lg hover:bg-sky-50 transition duration-300 font-semibold"
               >
-                Schedule Appointment
+                {blok.appointment_button}
               </Link>
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-lg">
-              <h3 className="text-xl font-bold text-[#003666] mb-4">Visit Tips</h3>
+              <h3 className="text-xl font-bold text-[#003666] mb-4">{blok.tips_headline}</h3>
               <ul className="space-y-4">
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-[#0062B1] rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">Arrive 15 minutes early to complete any necessary paperwork</p>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-[#0062B1] rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">Wear comfortable clothing that allows easy examination</p>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-[#0062B1] rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">Prepare a list of questions you'd like to discuss</p>
-                </li>
+                {blok.tips_text.map((tip)=> (
+                  <li key={tip._uid} className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-[#0062B1] rounded-full mt-2 flex-shrink-0" />
+                    <p className="text-gray-700">{tip.text}</p>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="bg-gradient-to-br from-sky-50 to-[#0062B1]/10 p-6 rounded-xl">
-              <h3 className="text-xl font-bold text-[#003666] mb-4">Office Locations</h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-gray-700 font-semibold">Upper East Side</p>
-                  <p className="text-gray-600 text-sm">425 East 79th Street, Suite 1H</p>
-                </div>
-                <div>
-                  <p className="text-gray-700 font-semibold">Flatiron District</p>
-                  <p className="text-gray-600 text-sm">19 West 21st Street, Suite 801</p>
-                </div>
+              <h3 className="text-xl font-bold text-[#003666] mb-4">{blok.locations_headline}</h3>
+              <div className="richtext space-y-4">
+                {render(blok.locations_text)}
               </div>
               <Link
-                to="/contact"
+                to={`${blok.locations_link}`}
                 className="inline-flex items-center text-[#0062B1] font-semibold hover:text-[#003666] mt-4"
               >
-                Get directions
+                {blok.locations_button}
                 <ChevronRight className="ml-2" />
               </Link>
             </div>
@@ -180,7 +132,6 @@ const BeforeYourVisit = () => {
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };

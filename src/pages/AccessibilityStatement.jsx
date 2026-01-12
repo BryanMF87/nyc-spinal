@@ -1,55 +1,10 @@
-import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import { Helmet } from 'react-helmet';
-import { Shield, User, Phone, Mail } from 'lucide-react';
+import { Icon } from '@iconify/react/dist/iconify.js';
 
-const AccessibilityStatement = () => {
-  const sections = [
-    {
-      icon: Shield,
-      title: "Accessibility Statement",
-      content: `General
-The New York Center for Spinal Disorders (NYCSD) strives to ensure that its services are accessible to people with disabilities. NYCSD has invested a significant amount of resources to help ensure that its website is made easier to use and more accessible for people with disabilities, with the strong belief that every person has the right to live with dignity, equality, comfort and independence.`
-    },
-    {
-      icon: User,
-      title: "Accessibility on nycspinaldisorders.com",
-      content: `nycspinaldisorders.com makes available the UserWay Website Accessibility Widget that is powered by a dedicated accessibility server. The software allows nycspinaldisorders.com to improve its compliance with the Web Content Accessibility Guidelines (WCAG 2.1).`
-    },
-    {
-      icon: User,
-      title: "Enabling the accessibility menu",
-      content: `The nycspinaldisorders.com accessibility menu can be enabled by clicking the accessibility menu icon that appears on the corner of the page. After triggering the accessibility menu, please wait a moment for the accessibility menu to load in its entirety.`
-    },
-    {
-      icon: User,
-      title: "Disclaimer",
-      content: `NYCSD continues its efforts to constantly improve the accessibility of its site and services in the belief that it is our collective moral obligation to allow seamless, accessible and unhindered use also for those of us with disabilities.
-
-Despite our efforts to make all pages and content on nycspinaldisorders.com fully accessible, some content may not have yet been fully adapted to the strictest accessibility standards. This may be a result of not having found or identified the most appropriate technological solution.`
-    },
-    {
-      icon: User,
-      title: "Here for you",
-      content: `If you are experiencing difficulty with any content on nycspinaldisorders.com or require assistance with any part of our site, please contact us during normal business hours as detailed below and we will be happy to assist.`
-    },
-    {
-      icon: User,
-      title: "Contact us",
-      content: `If you wish to report an accessibility issue, have any questions or need assistance, please contact NYCSD Customer Support as follows:
-
-New York Center for Spinal Disorders
-425 East 79th Street, Suite 1H
-New York, NY 10075
-Email: compliance@spine-nyc.com
-Phone: (212) 249-3840`
-    }
-  ];
+const AccessibilityStatement = ({blok}) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <Helmet>
+      {/* <Helmet>
         <title>Accessibility Statement - New York Center for Spinal Disorders</title>
         <meta
           name="description"
@@ -81,9 +36,7 @@ Phone: (212) 249-3840`
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="theme-color" content="#4a90e2" />
         <meta name="mobile-web-app-capable" content="yes" />
-      </Helmet>
-
-      <Header />
+      </Helmet> */}
 
       <div className="relative h-[30vh] bg-gradient-to-r from-[#003666] to-[#0062B1]">
         <div className="absolute inset-0 opacity-20">
@@ -92,10 +45,10 @@ Phone: (212) 249-3840`
         <div className="relative h-full max-w-6xl mx-auto px-4 flex items-center">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Accessibility Statement
+              {blok.headline}
             </h1>
             <p className="text-xl text-blue-100">
-              Ensuring our website is accessible to everyone
+              {blok.subheadline}
             </p>
           </div>
         </div>
@@ -103,21 +56,20 @@ Phone: (212) 249-3840`
 
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="space-y-12">
-          {sections.map((section, index) => (
-            <div key={index} className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+          {blok.sections?.content[0].attrs.body.map((section) => (
+            <div key={section._uid} className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
               <div className="flex items-center gap-4 mb-4">
-                <section.icon className="w-8 h-8 text-blue-600" />
-                <h2 className="text-2xl font-bold text-blue-900">{section.title}</h2>
+                <Icon icon={section.icon.icon} className="w-8 h-8 text-blue-600" />
+                <h2 className="text-2xl font-bold text-blue-900">{section.text}</h2>
               </div>
               <p className="text-gray-700 whitespace-pre-line leading-relaxed">
-                {section.content}
+                {section.description}
               </p>
             </div>
           ))}
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };

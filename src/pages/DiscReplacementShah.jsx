@@ -1,5 +1,3 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
@@ -14,6 +12,12 @@ import {
   HeartPulse,
   Calendar
 } from 'lucide-react';
+
+
+  // ---------------------------
+  // this page as built dynamically inside of the Storyblok platform with reusable components
+  // ---------------------------
+  
 
 const DiscReplacementShah = () => {
   const cervicalBenefits = [
@@ -38,7 +42,7 @@ const DiscReplacementShah = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
-      <Helmet>
+      {/* <Helmet>
         <title>Cervical and Lumbar Disc Replacement - New York Center for Spinal Disorders</title>
         <meta name="description" content="Learn about advanced disc replacement surgery as an alternative to spinal fusion. Dr. Neel Shah specializes in cervical and lumbar disc replacement procedures for chronic spine pain." />
         <meta name="keywords" content="disc replacement, cervical disc replacement, lumbar disc replacement, artificial disc, spinal surgery, spine specialist, total disc replacement, Dr. Neel Shah, New York" />
@@ -56,7 +60,7 @@ const DiscReplacementShah = () => {
         <meta name="twitter:image" content="/images/logo-header.png" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="theme-color" content="#0062B1" />
-      </Helmet>
+      </Helmet> */}
 
       <Header />
       

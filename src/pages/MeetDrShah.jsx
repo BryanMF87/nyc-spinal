@@ -1,108 +1,23 @@
-import React, { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Linkedin,
-  Instagram,
-  Calendar,
   ChevronLeft,
   ChevronRight,
   BookIcon,
   BookOpen,
   ChevronDown,
   ChevronUp,
-  Video,
-  Presentation,
   Disc
 } from 'lucide-react';
 
-import { Helmet } from 'react-helmet';
+import { Icon } from '@iconify/react/dist/iconify.js';
+import { render } from 'storyblok-rich-text-react-renderer';
 
-const presentations = [
-  {
-    title: "Preventing Neck and Back Pain",
-    type: "Media Appearance",
-    venue: "Connecticut News 12 Health Talks",
-    date: "August 20, 2017",
-    link: "https://www.youtube.com/watch?v=A8Ney5b7sCI&t=8s"
-  },
-  {
-    title: "Treating Neck and Back Pain",
-    type: "Media Appearance",
-    venue: "Connecticut News 12 Health Talks",
-    date: "August 20, 2017",
-    link: "https://www.youtube.com/watch?v=m2dHvffJveU&t=2s"
-  },
-  {
-    title: "A Novel Approach for the Intraoperative Detection of Acute C5 Nerve Root Palsies",
-    type: "Conference Presentation",
-    venue: "Annual Meeting for ISASS",
-    location: "Toronto, Ontario, CA",
-    date: "April 2018",
-    authors: "Silverstein, J., Goldstein, M., Porter, D., Madhok, R., Harrington, JF, Basra, S., & Shah, N."
-  },
-  {
-    title: "Local insulin application has a dose-dependent effect on lumbar fusion in a rabbit model",
-    type: "Conference Presentation",
-    venue: "62nd Annual Orthopaedic Research Society Meeting",
-    location: "Orlando, FL",
-    date: "March 5-8, 2016",
-    authors: "Vives MJ, O'Connor JP, Subramanian S, Cottrell JA, Chaudhary S, Shah NP, Munoz III W, Lin SS"
-  }
-];
 
-const publications = [
-  {
-    type: "article",
-    title: "Traumatic atlantoaxial dislocation with Hangman fracture",
-    authors: "Chaudhary SB, Martinez M, Shah NP, Vives MJ",
-    journal: "Spine J",
-    date: "2015",
-    details: "Apr 1;15(4):e15-8",
-    affiliation: "Rutgers – New Jersey Medical School"
-  },
-  {
-    type: "chapter",
-    title: "Chapter on Isthmic Spondylolisthesis",
-    authors: "Kwon B, Kim D, Shah N",
-    book: "Herkowitz and Simeone: The Spine, the 7th Edition",
-    date: "2017"
-  },
-  {
-    type: "chapter",
-    title: "Chapter & Video on Sub-laminar Wire Placement",
-    authors: "Vives M, Sabharwal S, Shah N",
-    book: "Spine Surgery: Tricks of the Trade 3rd Edition",
-    date: "2016"
-  },
-  {
-    type: "article",
-    title: "Early Medical Complications and Delayed Discharge after Spinopelvic Fusion: A Comparative Analysis of 887 NSQIP Cases from 2006 to 2016",
-    authors: "Sharfman ZT, Gelfand Y, Shah P, Holtzman AJ, Mendelis JR, Shah N, Krystal J, Yassari R, Kramer DC",
-    journal: "Spine Surg Relat Res",
-    date: "2020",
-    details: "Mar 31;4(4):314-319"
-  },
-  {
-    type: "article",
-    title: "Local Insulin Application has a Dose-Dependent Effect on Lumbar Fusion in a Rabbit Model",
-    authors: "Abraham S, Vives M, Cottrell J, Mitchell A, Lin HN, Effiong L, Iqbal E, Jingar N, Kim B, Shah N, Munoz W, Chaudhary SB, Lin SS, Benevenia J, O'Connor JP",
-    journal: "J Tissue Eng Regen Med",
-    date: "2021",
-    details: "Feb 19. doi: 10.1002/term.3182"
-  }
-];
+const MeetDrShah = ({blok}) => {
 
-const MeetDrShah = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [activeSection, setActiveSection] = useState('about');
-
-  const doctorImages = [
-    '../images/DrShahPicture1.jpg',
-    '../images/DrShahPicture2.jpg',
-    '../images/DrShahPicture3.jpg'
-  ];
 
   const sections = [
     {
@@ -127,19 +42,19 @@ const MeetDrShah = () => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % doctorImages.length);
+    setCurrentImageIndex((prev) => (prev + 1) % blok.image_slider_images.length);
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + doctorImages.length) % doctorImages.length);
+    setCurrentImageIndex((prev) => (prev - 1 + blok.image_slider_images.length) % blok.image_slider_images.length);
   };
 
   const ImageCarousel = ({ isMobile }) => (
     <div className={`${isMobile ? 'md:hidden' : 'hidden md:block'} bg-white rounded-2xl shadow-lg overflow-hidden relative group`}>
       <div className="relative">
         <img
-          src={doctorImages[currentImageIndex]}
-          alt={`Dr. Neel Shah - Image ${currentImageIndex + 1}`}
+          src={blok.image_slider_images[currentImageIndex]?.filename}
+          alt={`Dr. Neel Shah - ${currentImageIndex + 1}`}
           className="w-full h-96 object-cover object-top"
         />
         <button
@@ -157,25 +72,23 @@ const MeetDrShah = () => {
           <ChevronRight className="w-6 h-6 text-[#003666]" />
         </button>
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-          {doctorImages.map((_, index) => (
+          {blok.image_slider_images.map((image, index) => (
             <div
               key={index}
-              className={`w-2 h-2 rounded-full ${index === currentImageIndex ? 'bg-[#003666]' : 'bg-white/60'
-                }`}
+              className={`w-2 h-2 rounded-full ${index === currentImageIndex ? 'bg-[#003666]' : 'bg-white/60'}`}
             />
           ))}
         </div>
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-bold text-[#003666] mb-2">Neel P. Shah, MD</h3>
-        <p className="text-gray-600">Board Certified Orthopedic Surgeon</p>
+        {render(blok.image_slider_text)}
       </div>
     </div>
   );
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
-      <Helmet>
+      {/* <Helmet>
         <title>Meet Dr. Neel Shah - Board-Certified Orthopedic Spine Surgeon | NY Spinal Disorders</title>
         <meta name="description" content="Dr. Neel P. Shah specializes in minimally invasive spine surgery and complex spinal disorders. NYU Langone affiliated surgeon providing personalized spine care and advanced surgical techniques in New York." />
         <meta name="keywords" content="Dr. Neel Shah, spine surgeon, spinal disorders, minimally invasive surgery, orthopedic surgeon, spine surgery publications, medical presentations, NYU Langone, New York spine specialist, microsurgery" />
@@ -195,29 +108,27 @@ const MeetDrShah = () => {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="theme-color" content="#003666" />
         <meta name="mobile-web-app-capable" content="yes" />
-      </Helmet>
-
-      <Header />
+      </Helmet> */}
 
       <div className="relative h-96 bg-gradient-to-r from-[#003666] to-[#0062B1]">
         <div className="absolute inset-0">
           <img
-            src="../images/circles.jpg"
-            alt="Background"
+            src={`${blok.hero_image.filename}`}
+            alt=""
             className="w-full h-full object-cover opacity-20"
           />
         </div>
         <div className="relative h-full max-w-6xl mx-auto px-4 flex items-center">
           <div>
-            <h1 className="text-5xl font-bold text-white mb-4">Neel P. Shah, MD</h1>
-            <p className="text-lg md:text-2xl text-sky-100">Board-Certified Orthopedic Spine Surgeon</p>
-            <p className="text-base md:text-xl text-sky-100 mt-2">Minimally Invasive & Reconstructive Spinal Surgery</p>
+            <h1 className="text-5xl font-bold text-white mb-4">{blok.hero_headline}</h1>
+            <p className="text-lg md:text-2xl text-sky-100">{blok.hero_subheadline_top}</p>
+            <p className="text-base md:text-xl text-sky-100 mt-2">{blok.hero_subheadline_bottom}</p>
             <div className="flex space-x-6 mt-8">
-              <a href="https://www.linkedin.com/in/neel-shah-md-23728787/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-sky-200 transition-colors">
-                <Linkedin size={24} />
+              <a href={`${blok.hero_linkedin_link.url}`} target="_blank" rel="noopener noreferrer" className="text-white hover:text-sky-200 transition-colors">
+                <Icon icon={blok.hero_linkedin_icon.icon} className="text-2xl"/>
               </a>
-              <a href="https://www.instagram.com/discmd/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-sky-200 transition-colors">
-                <Instagram size={24} />
+              <a href={`${blok.hero_ig_link.url}`} target="_blank" rel="noopener noreferrer" className="text-white hover:text-sky-200 transition-colors">
+                <Icon icon={blok.hero_ig_icon.icon} className="text-2xl"/>
               </a>
             </div>
           </div>
@@ -256,107 +167,69 @@ const MeetDrShah = () => {
             {activeSection === 'about' && (
               <div className="space-y-12 animate-fadeIn">
                 <div className="prose max-w-none">
-                  <div className="bg-white rounded-xl p-8 shadow-sm">
-                    <h2 className="text-3xl font-bold text-[#003666] mb-6">Pioneering Minimally Invasive Spine Care</h2>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      At the forefront of spine surgery innovation, Dr. Neel P. Shah brings together cutting-edge technology and compassionate care. As a board-certified orthopedic spine surgeon, he has dedicated his practice to advancing minimally invasive techniques that prioritize both precision and patient comfort. His expertise in microscopic spine surgery and motion preservation has established him as a leader in modern spinal care.
-                    </p>
-                    <p className="text-lg text-gray-700 leading-relaxed mt-6">
-                      While mastering the complexities of advanced spine surgery, Dr. Shah remains guided by a simple yet powerful philosophy: "Less is more." This approach reflects his commitment to achieving maximum benefits through minimal intervention, carefully selecting the least invasive treatment options that will effectively restore his patients' quality of life.
-                    </p>
+                  <div className="richtext bg-white rounded-xl p-8 shadow-sm">
+                    {render(blok.dr_shah_intro)}
                   </div>
 
-                  <div className="bg-gradient-to-r from-[#003666] to-[#0062B1] rounded-xl p-8 mt-8 text-white">
-                    <h2 className="text-3xl font-bold mb-6">A Vision for Patient Care</h2>
+                  <div className="bg-gradient-to-r from-[#003666] to-[#0062B1] rounded-xl p-8 mt-8">
+                    <h2 className=" text-white text-3xl font-bold mb-6">{blok.vision_headline}</h2>
                     <div className="space-y-6">
-                      <p className="text-lg leading-relaxed">
-                        Dr. Shah's approach to spine care is built on four fundamental pillars:
+                      <p className=" text-white text-lg leading-relaxed">
+                        {blok.vision_paragraph}
                       </p>
                       <div className="grid md:grid-cols-2 gap-6">
-                        <div className="bg-white/10 rounded-lg p-6">
-                          <h3 className="text-xl font-semibold mb-3">Nerve Decompression</h3>
-                          <p>Precision techniques to relieve pressure and restore proper nerve function</p>
+                        {blok.vision_list.map(item => (
+                          <div key={item._uid} className="bg-white/10 rounded-lg p-6">
+                            <h3 className="text-xl text-white font-semibold mb-3">{item.text}</h3>
+                            <p className="text-white">{item.description}</p>
                         </div>
-                        <div className="bg-white/10 rounded-lg p-6">
-                          <h3 className="text-xl font-semibold mb-3">Stability Enhancement</h3>
-                          <p>Advanced methods to ensure spinal stability and long-term structural integrity</p>
-                        </div>
-                        <div className="bg-white/10 rounded-lg p-6">
-                          <h3 className="text-xl font-semibold mb-3">Deformity Correction</h3>
-                          <p>Innovative solutions to address and correct spinal misalignments</p>
-                        </div>
-                        <div className="bg-white/10 rounded-lg p-6">
-                          <h3 className="text-xl font-semibold mb-3">Motion Preservation</h3>
-                          <p>Cutting-edge techniques to maintain natural spinal movement</p>
-                        </div>
+                        ))}
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-8 bg-white rounded-xl p-8 shadow-sm">
-                    <h2 className="text-3xl font-bold text-[#003666] mb-6">Personal Approach to Care</h2>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      Every patient's journey is unique, and Dr. Shah takes pride in providing individualized attention that goes beyond standard care protocols. He believes in taking the time to truly understand each patient's specific needs, lifestyle, and goals. This personalized approach allows him to develop treatment plans that not only address immediate concerns but also support long-term spinal health.
-                    </p>
-                    <p className="text-lg text-gray-700 leading-relaxed mt-6">
-                      Dr. Shah's decision to leave corporate medicine stems from his commitment to treat patients like family and build lasting relationships. He is opposed to the current trend in healthcare where patients are treated on a conveyor belt and clinics become revolving doors. Instead, he strives to spend as much time as needed with each patient, rather than adhering to the allotted times dictated by corporate healthcare and insurance companies.
-                    </p>
-                    <p className="text-lg text-gray-700 leading-relaxed mt-6">
-                      "I treat every patient as if they were family," Dr. Shah often says, "and that means taking the time to explore all options and find the solution that best fits their individual needs." This philosophy has shaped his practice into one where patients feel heard, understood, and confident in their treatment decisions.
-                    </p>
-                    <p className="text-lg text-gray-700 leading-relaxed mt-6">
-                      Dr. Shah is on staff at one of the top hospitals in the country, NYU Langone Hospital. Before returning to NYC, he was in practice in Southern California at one of the most highly rated orthopedic practices, DISC Sport and Spine.
-                    </p>
+                  <div className="richtext mt-8 bg-white rounded-xl p-8 shadow-sm">
+                    {render(blok.personal_approach)}
                   </div>
 
                   <div className="mt-8">
-                    <h2 className="text-3xl font-bold text-[#003666] mb-6">Academic Excellence & Current Appointments</h2>
+                    <h2 className="text-3xl font-bold text-[#003666] mb-6">{blok.academia_headline}</h2>
                     <div className="grid md:grid-cols-2 gap-8">
                       <div className="bg-white rounded-xl p-6 shadow-sm">
-                        <h3 className="text-xl font-semibold text-[#003666] mb-4">Education</h3>
+                        <h3 className="text-xl font-semibold text-[#003666] mb-4">{blok.academia_education_headline}</h3>
                         <ul className="space-y-3 text-gray-700">
-                          <li className="flex items-center">
-                            <div className="w-2 h-2 bg-[#0062B1] rounded-full mr-3"></div>
-                            <span>BS in Biomedical Engineering - Northwestern University</span>
-                          </li>
-                          <li className="flex items-center">
-                            <div className="w-2 h-2 bg-[#0062B1] rounded-full mr-3"></div>
-                            <span>MD - SUNY Downstate College of Medicine</span>
-                          </li>
+                          {blok.academia_education_list.map(item => (
+                             <li key={item._uid} className="flex items-center">
+                              <div className="w-2 h-2 bg-[#0062B1] rounded-full mr-3 shrink-0"></div>
+                                <span>{item.text}</span>
+                            </li>
+                          ))}
                         </ul>
                       </div>
 
                       <div className="bg-white rounded-xl p-6 shadow-sm">
-                        <h3 className="text-xl font-semibold text-[#003666] mb-4">Advanced Training</h3>
+                        <h3 className="text-xl font-semibold text-[#003666] mb-4">{blok.academia_training_headline}</h3>
                         <ul className="space-y-3 text-gray-700">
-                          <li className="flex items-center">
-                            <div className="w-2 h-2 bg-[#0062B1] rounded-full mr-3"></div>
-                            <span>Orthopedic Surgery Residency - Rutgers University</span>
-                          </li>
-                          <li className="flex items-center">
-                            <div className="w-2 h-2 bg-[#0062B1] rounded-full mr-3"></div>
-                            <span>Spine Surgery Fellowship - New England Baptist Hospital</span>
-                          </li>
+                          {blok.academia_training_list.map(item => (
+                             <li key={item._uid} className="flex items-center">
+                              <div className="w-2 h-2 bg-[#0062B1] rounded-full mr-3 shrink-0"></div>
+                                <span>{item.text}</span>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </div>
 
                     <div className="mt-8 bg-white rounded-xl p-6 shadow-sm">
-                      <h3 className="text-xl font-semibold text-[#003666] mb-4">Current Faculty Appointments</h3>
-                      <ul className="space-y-3 text-gray-700">
-                        <li className="flex items-center">
-                          <div className="w-2 h-2 bg-[#0062B1] rounded-full mr-3"></div>
-                          <span>Assistant Professor - Department of Orthopedic Surgery, NYU Langone</span>
-                        </li>
-                        <li className="flex items-center">
-                          <div className="w-2 h-2 bg-[#0062B1] rounded-full mr-3"></div>
-                          <span>Assistant Professor - Department of Orthopedic Surgery, Mount Sinai Hospital</span>
-                        </li>
-                        <li className="flex items-center">
-                          <div className="w-2 h-2 bg-[#0062B1] rounded-full mr-3"></div>
-                          <span>Attending Surgeon - Northwell Health, Lenox Hill Hospital</span>
-                        </li>
-                      </ul>
+                      <h3 className="text-xl font-semibold text-[#003666] mb-4">{blok.academia_appointments_headline}</h3>
+                        <ul className="space-y-3 text-gray-700">
+                          {blok.academia_appointments_list.map(item => (
+                             <li key={item._uid} className="flex items-center">
+                              <div className="w-2 h-2 bg-[#0062B1] rounded-full mr-3"></div>
+                                <span>{item.text}</span>
+                            </li>
+                          ))}
+                        </ul>
                     </div>
                   </div>
                 </div>
@@ -368,32 +241,21 @@ const MeetDrShah = () => {
               <div className="space-y-8 animate-fadeIn">
                 <section id="presentations" className="mb-16">
                   <div className="flex items-center mb-8">
-                    <Presentation className="w-8 h-8 text-[#0062B1] mr-4" />
-                    <h2 className="text-3xl font-bold text-[#003666]">Presentations</h2>
+                    <Icon icon={blok.presentations_icon.icon} className="w-8 h-8 text-[#0062B1] mr-4" />
+                    <h2 className="text-3xl font-bold text-[#003666]">{blok.presentations_headline}</h2>
                   </div>
 
                   <div className="grid gap-6">
-                    {presentations.map((presentation, idx) => (
+                    {blok.presentations_list.map((presentation, idx) => (
                       <div key={idx} className="bg-white rounded-xl shadow-lg p-6">
                         <div className="flex items-start gap-4">
-                          {presentation.type === "Media Appearance" ? (
-                            <Video className="w-6 h-6 text-[#0062B1] flex-shrink-0 mt-1" />
-                          ) : (
-                            <Presentation className="w-6 h-6 text-[#0062B1] flex-shrink-0 mt-1" />
-                          )}
+                            <Icon icon={presentation.icon} className="w-6 h-6 text-[#0062B1] flex-shrink-0 mt-1" />
                           <div>
-                            <h3 className="text-xl font-bold text-[#003666] mb-2">{presentation.title}</h3>
-                            <p className="text-gray-600">{presentation.venue}</p>
-                            {presentation.location && (
-                              <p className="text-gray-600">{presentation.location}</p>
-                            )}
-                            <p className="text-gray-600">{presentation.date}</p>
-                            {presentation.authors && (
-                              <p className="text-gray-600 mt-2">{presentation.authors}</p>
-                            )}
-                            {presentation.link && (
+                            <h3 className="text-xl font-bold text-[#003666] mb-2">{presentation.text}</h3>
+                            <p className="text-gray-600 whitespace-pre-line">{presentation.description}</p>
+                            {presentation.link.url !== "" && (
                               <a
-                                href={presentation.link}
+                                href={`${presentation.link.url}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-[#0062B1] hover:text-[#003666] mt-2 inline-block"
@@ -410,26 +272,15 @@ const MeetDrShah = () => {
 
                 <section id="publications" className="mb-16">
                   <div className="flex items-center mb-8">
-                    <BookOpen className="w-8 h-8 text-[#0062B1] mr-4" />
-                    <h2 className="text-3xl font-bold text-[#003666]">Publications</h2>
+                    <Icon icon={blok.publications_icon.icon} className="w-8 h-8 text-[#0062B1] mr-4" />
+                    <h2 className="text-3xl font-bold text-[#003666]">{blok.publications_headline}</h2>
                   </div>
 
                   <div className="grid gap-6">
-                    {publications.map((publication, idx) => (
+                    {blok.publications_list.map((publication, idx) => (
                       <div key={idx} className="bg-white rounded-xl shadow-lg p-6">
-                        <h3 className="text-xl font-bold text-[#003666] mb-2">{publication.title}</h3>
-                        <p className="text-gray-600 mb-2">{publication.authors}</p>
-                        {publication.type === "article" ? (
-                          <p className="text-gray-700">
-                            {publication.journal}. {publication.date}
-                            {publication.details && `, ${publication.details}`}
-                            {publication.affiliation && ` • ${publication.affiliation}`}
-                          </p>
-                        ) : (
-                          <p className="text-gray-700">
-                            In: {publication.book} ({publication.date})
-                          </p>
-                        )}
+                        <h3 className="text-xl font-bold text-[#003666] mb-2">{publication.text}</h3>
+                        <p className="text-gray-600 mb-2 whitespace-pre-line leading-4">{publication.description}</p>
                       </div>
                     ))}
                   </div>
@@ -441,33 +292,30 @@ const MeetDrShah = () => {
             {activeSection === 'discReplacement' && (
               <div className="space-y-8 animate-fadeIn">
                 <div className="bg-white rounded-xl p-8 shadow-lg">
-                  <h2 className="text-3xl font-bold text-[#003666] mb-6">Advanced Disc Replacement Surgery</h2>
+                  <h2 className="text-3xl font-bold text-[#003666] mb-6">{blok.disc_replacement_headline}</h2>
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    Dr. Shah is a leading expert in total disc replacement surgery, offering both cervical and lumbar disc replacement as advanced alternatives to traditional spinal fusion. These motion-preserving procedures allow patients to maintain natural spine movement while effectively relieving pain from degenerative disc disease and herniated discs.
+                    {blok.disc_replacement_paragraph}
                   </p>
                   <div className="mt-8 flex justify-center">
-                    <Link to="/disc-replacement-shah" className="inline-flex items-center bg-[#0062B1] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#003666] transition-all duration-300 text-lg">
-                      Learn More About Disc Replacement
+                    <Link to={`/${blok.disc_replacement_link.cached_url}`} className="inline-flex items-center bg-[#0062B1] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#003666] transition-all duration-300 text-lg">
+                      {blok.disc_replacement_button}
                       <ChevronRight className="ml-2" />
                     </Link>
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-gradient-to-br from-sky-50 to-[#0062B1]/10 p-6 rounded-xl shadow-md">
-                    <h3 className="text-xl font-bold text-[#003666] mb-4">Cervical Disc Replacement</h3>
-                    <p className="text-gray-700 mb-4">
-                      A minimally invasive procedure for the neck that preserves natural motion and offers faster recovery compared to traditional fusion surgery.
-                    </p>
-                  </div>
-
-                  <div className="bg-gradient-to-br from-sky-50 to-[#0062B1]/10 p-6 rounded-xl shadow-md">
-                    <h3 className="text-xl font-bold text-[#003666] mb-4">Lumbar Disc Replacement</h3>
-                    <p className="text-gray-700 mb-4">
-                      Advanced treatment for lower back that maintains flexibility and reduces the risk of adjacent segment degeneration.
-                    </p>
-                  </div>
+                  {blok.disc_types.map(item=> (
+                    <div key={item._uid} className="bg-gradient-to-br from-sky-50 to-[#0062B1]/10 p-6 rounded-xl shadow-md">
+                      <h3 className="text-xl font-bold text-[#003666] mb-4">{item.text}</h3>
+                      <p className="text-gray-700 mb-4">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
                 </div>
+
+                  
               </div>
             )}
           </div>
@@ -478,34 +326,38 @@ const MeetDrShah = () => {
 
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               <img
-                src="../images/shahAward.jpg"
-                alt="Doctor's Choice Award 2017"
+                src={`${blok.cards_list[0].asset.filename}`}
+                alt={`${blok.cards_list[0].asset.alt}`}
                 className="w-full h-auto object-contain p-2 md:p-4 max-h-48 md:max-h-none rounded-[40px]"
               />
               <div className="p-4 text-center bg-gray-50">
-                <p className="text-sm font-semibold text-gray-700">#3 in the Nation for Orthopedics" - U.S. News & World Report</p>
+                <p className="text-sm font-semibold text-gray-700">{blok.cards_list[0].text}</p>
               </div>
             </div>
 
-            <Link to="/appointment" className="block">
-              <div className="bg-[#003666] hover:bg-[#0062B1] transition-colors rounded-2xl shadow-lg p-6 text-center">
-                <Calendar size={32} className="mx-auto text-white mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Request Appointment</h3>
-                <p className="text-sky-100">Schedule a consultation with Dr. Shah</p>
-              </div>
-            </Link>
+            <div className="bg-white p-6 rounded-2xl shadow-lg overflow-hidden">
+              <h3 className="text-xl font-bold text-[#003666] mb-4">{blok.cards_list[1].text}</h3>
+              <p className="text-gray-700 mb-6">
+                {blok.cards_list[1].description}
+              </p>
+              <Link
+                to={`/${blok.cards_list[1].link.cached_url}`}
+                className="block w-full text-center bg-[#0062B1] text-white py-3 rounded-lg hover:bg-[#003666] transition duration-300 font-semibold"
+              >
+                Contact Us
+              </Link>
+            </div>
 
-            <div className="bg-gradient-to-br from-[#003666] to-[#0062B1] rounded-2xl text-white p-6">
-              <h3 className="text-xl font-bold mb-4">Personal Life</h3>
-              <p className="text-sky-100">
-                When Dr. Shah isn't busy returning his patients to top shape, you can find him honing his skiing skills down double-black diamonds or exploring New York City. He enjoys spending his free time being active and outdoors with his wife, son, and their Australian Shepherd, Bodhi.
+            <div className="bg-gradient-to-br from-[#003666] to-[#0062B1] rounded-2xl p-6">
+              <h3 className="text-xl text-white font-bold mb-4">{blok.cards_list[2].text}</h3>
+              <p className="text-white">
+                {blok.cards_list[2].description}
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };

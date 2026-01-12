@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { useState } from 'react';
 import { AlertTriangle, Send, Loader2, CheckCircle2, XCircle } from 'lucide-react';
-import { Helmet } from 'react-helmet';
 
 const StatusAlert = ({ type, message }) => {
   if (!message) return null;
@@ -31,7 +28,11 @@ const StatusAlert = ({ type, message }) => {
   );
 };
 
-const AppointmentPage = () => {
+const AppointmentPage = ({blok}) => {
+
+  console.log('appointment page', blok);
+
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -100,7 +101,7 @@ const AppointmentPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
 
-      <Helmet>
+      {/* <Helmet>
         <title>Request an Appointment - New York Center for Spinal Disorders</title>
         <meta name="description" content="Schedule an appointment with the expert spine specialists at the New York Center for Spinal Disorders. Contact us today to receive personalized spine care in Manhattan." />
         <meta name="keywords" content="appointment, spinal disorders, spine specialist, back pain consultation, scoliosis treatment, New York, Dr. Tindel, Dr. Shah, orthopedic surgeon, spine care" />
@@ -121,10 +122,7 @@ const AppointmentPage = () => {
         <meta name="theme-color" content="#4a90e2" />
         <meta name="mobile-web-app-capable" content="yes" />
       </Helmet>
-
-      <Header />
-
-      
+       */}
       <div className="relative h-[40vh] bg-gradient-to-r from-[#003666] to-[#0062B1]">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-[#003666] to-[#0062B1]" />
@@ -275,8 +273,6 @@ const AppointmentPage = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

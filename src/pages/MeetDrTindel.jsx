@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
@@ -22,6 +22,9 @@ import {
 
 import { Helmet } from 'react-helmet';
 
+  // ---------------------------
+  // this page as built dynamically inside of the Storyblok platform with reusable components
+  // ---------------------------
 
 
 const MeetDrTindel = () => {
@@ -323,7 +326,7 @@ const MeetDrTindel = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
-      <Helmet>
+      {/* <Helmet>
         <title>Meet Dr. Nathaniel Tindel - New York Center for Spinal Disorders</title>
         <meta name="description" content="Discover Dr. Nathaniel Tindel's personal philosophy on patient care, emphasizing a thoughtful approach to treating spinal disorders with personalized, compassionate care." />
         <meta name="keywords" content="spinal disorders, scoliosis treatment, herniated discs, back pain, spine conditions, New York, Dr. Tindel, orthopedic surgeon, spine care, scoliosis in teens" />
@@ -343,7 +346,7 @@ const MeetDrTindel = () => {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="theme-color" content="#4a90e2" />
         <meta name="mobile-web-app-capable" content="yes" />
-        </Helmet>
+        </Helmet> */}
       <Header />
       
       <div className="relative h-[40vh] bg-gradient-to-r from-[#003666] to-[#0062B1]">

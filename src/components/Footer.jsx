@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, MapPin, ChevronRight } from 'lucide-react';
 
@@ -36,15 +35,15 @@ const Footer = () => {
               <div className="flex items-start space-x-4 bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm border border-gray-800 w-full">
                 <MapPin className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
                 <div className="space-y-2">
-                  <h3 className="text-gray-100 font-medium">Upper East Side</h3>
+                  <h3 className="text-white font-medium">Upper East Side</h3>
                   <a
                     href="https://www.google.com/maps?q=425+East+79th+Street,+Suite+1H,+New+York,+NY+10075"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-300 leading-relaxed hover:text-blue-400 transition-colors block"
+                    className="text-white leading-relaxed hover:text-blue-400 transition-colors block"
                   >
                     425 East 79th Street, Suite 1H<br />
-                    <span className="text-gray-400 text-sm">New York, NY 10075</span>
+                    <span className="text-white text-sm">New York, NY 10075</span>
                   </a>
                 </div>
               </div>
@@ -55,15 +54,15 @@ const Footer = () => {
               <div className="flex items-start space-x-4 bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm border border-gray-800 w-full">
                 <MapPin className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
                 <div className="space-y-2">
-                  <h3 className="text-gray-100 font-medium">Flatiron District</h3>
+                  <h3 className="text-white font-medium">Flatiron District</h3>
                   <a
                     href="https://www.google.com/maps?q=19+West+21st+Street,+Suite+801,+New+York,+NY+10010"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-300 leading-relaxed hover:text-blue-400 transition-colors block"
+                    className="text-white leading-relaxed hover:text-blue-400 transition-colors block"
                   >
                     19 West 21st Street, Suite 801<br />
-                    <span className="text-gray-400 text-sm">New York, NY 10010</span>
+                    <span className="text-white text-sm">New York, NY 10010</span>
                   </a>
                 </div>
               </div>
@@ -74,10 +73,10 @@ const Footer = () => {
               <div className="flex items-start space-x-4 bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm border border-gray-800 w-full">
                 <Phone className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
                 <div className="space-y-2">
-                  <h3 className="text-gray-100 font-medium">Contact Us</h3>
+                  <h3 className="text-white font-medium">Contact Us</h3>
                   <a
                     href="tel:+12122493840"
-                    className="text-gray-300 text-lg tracking-wide hover:text-blue-400 transition-colors"
+                    className="text-white text-lg tracking-wide hover:text-blue-400 transition-colors"
                   >
                     (212) 249-3840
                   </a>
@@ -89,13 +88,6 @@ const Footer = () => {
           
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
-              <Link
-                to="/appointment"
-                className="group flex items-center text-gray-300 hover:text-blue-400 transition-colors"
-              >
-                <span>Schedule Appointment</span>
-                <ChevronRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
-              </Link>
               <Link
                 to="/insurance-and-forms"
                 className="group flex items-center text-gray-300 hover:text-blue-400 transition-colors"
@@ -179,9 +171,6 @@ const Footer = () => {
           <div className="text-center space-y-2">
             <p className="text-gray-500 text-sm">
               © {new Date().getFullYear()} New York Center for Spinal Disorders. All rights reserved.
-            </p>
-            <p className="text-gray-500 text-sm">
-              Built & Powered by <a href="https://hexapoint.com" className="text-blue-400 hover:text-blue-300 transition-colors">Hexapoint</a>
             </p>
           </div>
         </div>
