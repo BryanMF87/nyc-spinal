@@ -1,14 +1,9 @@
-import { useState } from 'react';
 import { Phone, BookOpen, Activity } from 'lucide-react';
 import { render } from 'storyblok-rich-text-react-renderer';
 
 const ConditionTemplate = ({blok}) => {
 
-  const [openFaqId, setOpenFaqId] = useState(null);
-
-  const toggleFaq = (id) => {
-    setOpenFaqId(openFaqId === id ? null : id);
-  };
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">

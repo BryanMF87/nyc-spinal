@@ -1,10 +1,8 @@
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
-import { render } from "storyblok-rich-text-react-renderer";
 
 export default function SectionWrapper({ blok }) {
 
   const {
-    text,
     background_color,
     background_image,
     background_image_opacity,

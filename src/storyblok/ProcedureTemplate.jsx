@@ -1,13 +1,7 @@
-import React, { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
-import { Phone, ArrowRight, BookOpen, Activity, Heart, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
-import { render } from 'storyblok-rich-text-react-renderer';
+import { useState } from 'react';
+import { Phone, BookOpen, Activity, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 
 const ProcedureTemplate = ({blok}) => {
-
-  console.log('procedure is : ', blok);
 
   const [openFaqId, setOpenFaqId] = useState(null);
 
@@ -17,18 +11,6 @@ const ProcedureTemplate = ({blok}) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      
-      <title>{blok.title}</title>
-      <meta name="description" content={blok.metaDescription} />
-      <meta name="keywords" content={blok.metaKeywords} />
-      <meta name="author" content="Dr. Nathaniel Tindel" />
-      <meta property="og:title" content={blok.title} />
-      <meta property="og:description" content={blok.metaDescription} />
-      <meta property="og:image" content="/images/logo-header.png" />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      
       <div className="flex items-center relative min-h-[40vh] bg-gradient-to-r from-[#003666] to-[#0062B1] py-8">
         <div className="absolute inset-0">
           <img

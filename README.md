@@ -11,6 +11,12 @@ import react components and storyblok component equivilants here via storyblokIn
 
 Fetch the home story of your Storyblok space. StoryblokComponent will resolve and render all of your Storyblok components.
 
+## Important blocks
+- Page : A content block that makes up the foundation of 90% of our site. Automatically added as you create each new story.
+- Condition / Procedure Template : A content block that makes up the foundation for reusable condition / procedure pages. These do not use Page content blocks.
+- Section : Used directly on content blocks to create a new section of content. Houses all other building blocks
+- Layout : Layout blocks like layout_2_col, grid, etc help our content editors define the organization of smaller building blocks and are used directly inside Section blocks.
+
 ## Richtext
 https://www.npmjs.com/package/storyblok-rich-text-react-renderer
     To parse the stylized data we need three elements -
@@ -35,7 +41,41 @@ Iconify icons in React https://github.com/iconify/iconify/tree/main/components/r
         4. Picking your desired icon from the list will automatically add an icon to that component
         5. Add "import { Icon } from '@iconify/react/dist/iconify.js';" to the top of the react component
 
-## Deploying React to GoDaddy / cPanel
+## Deployment
+
+### Preview vs Production
+
+https://www.storyblok.com/tp/create-preview-production-environments-and-deploy?utm_source=chatgpt.com
+
+Storyblok encourages using separate, dedicated environments for preview and production, as this provides the flexibility to test code changes in a safe environment to preview them and only deploy the approved changes into production.
+
+#### GoDaddy / cPanel (Prod)
+
+GoDaddy will be the production space that the end user will see
+- Used by real users
+- NOT used for Visual Editor by content editors
+- Uses Public API token
+- Fetches published content only
+- Stable, branded domain
+
+#### Vercel (Preview) 
+
+https://weitzman-storyblok.vercel.app/ will be the preview space that content editors will use to make Storyblok changes without breaking the production website
+- Open Storyblok
+- Click Visual Editor
+- Land on Vercel
+- Edit freely without risk
+
+#### Localhost
+
+Developers can work using localhost to -
+- Build locally (localhost)
+- Push to the Git repo
+- Vercel auto-deploys
+- Validate in Visual Editor
+- Publish content when ready
+
+### Deploying React to GoDaddy / cPanel
 
 https://www.google.com/search?q=react+to+cpanel&oq=react+to+cpanel&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yCAgCEAAYFhgeMg0IAxAAGIYDGIAEGIoFMgcIBBAAGO8F0gEIMjUxNmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:b8825258,vid:OVWIua3lbdo,st:0
 

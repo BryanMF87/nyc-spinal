@@ -10,13 +10,6 @@ const Attention = ({blok}) => {
     { name: 'Yelp', src: 'images/yelp.png', width: 'w-44' }
   ];
 
-  const mediaLogos = [
-    { name: 'CBS', src: 'images/CBS.png', width: 'w-36' },
-    { name: 'NBC', src: 'images/NBCNews.png', width: 'w-44' },
-    { name: 'ABC', src: 'images/abcnews.png', width: 'w-36' },
-    { name: 'AP', src: 'images/apnews.png', width: 'w-36' }
-  ];
-
   const logoStyle = {
     filter: 'brightness(0) saturate(100%) invert(27%) sepia(15%) saturate(1642%) hue-rotate(182deg) brightness(97%) contrast(89%)'
   };
