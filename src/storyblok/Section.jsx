@@ -2,8 +2,6 @@ import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 
 export default function Section({ blok }) {
 
-  console.log('section :', blok);
-
   return (
     <section className={``}>
       <div

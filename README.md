@@ -79,6 +79,15 @@ Developers can work using localhost to -
 
 https://www.google.com/search?q=react+to+cpanel&oq=react+to+cpanel&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yCAgCEAAYFhgeMg0IAxAAGIYDGIAEGIoFMgcIBBAAGO8F0gEIMjUxNmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:b8825258,vid:OVWIua3lbdo,st:0
 
+
+# Design
+
+## Color design tokens
+- Storyblok holds color databases for text and background options which will reflect custom css colors
+- Globals.css holds custom CSS colors: @layer utilities (brand-specific, not Tailwind-native)
+- Tailwind-native colors that are used as design tokens must be safelisted in tailwind.config
+
+
 =======================================
 
 # Notes from the original developer

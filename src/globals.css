@@ -1,122 +1,99 @@
-
-/* =========================================
-   Default typography
-   ========================================= */
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
-    color: #003666;
-}
-
-h1 {
-    font-size: 3rem;
-    line-height: 125%;
-    margin-bottom: 1.5rem;
-}
-
-h2 {
-    font-size: 2.75rem;
-    line-height: 125%;
-    margin-bottom: 1.5rem;
-}
-
-h3 {
-    font-size: 1.85rem;
-    line-height: 150%;
-    margin-bottom: 1.5rem;
-}
-
-h4 {
-    font-size: 1.125rem;
-    margin-bottom: 0.75rem;
-    line-height: 1.625rem;
-}
-
-h5 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.5rem;
-}
-
-h6 {
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.25rem;
-}
-
-p {
-    margin-bottom: 0.875rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    color: #1f2937;
-}
-
-b {
-    font-weight: 700;
-}
-
-li {
-    margin-left: 1rem;
-    margin-bottom: .5rem;
-    list-style-type: disc;
-    color: #033666;
-}
-
-a, link {
-    cursor: pointer;
-}
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
 
 
-/* =========================================
-   Responsive typography
-   ========================================= */
+@layer base {
 
-@media (min-width: 768px) {
-    h1 {
-        font-size: 3.75rem;
-        line-height: 4rem;
+    body, .richtext {
+        @apply font-body antialiased;
+    }
+
+    code {
+        @apply font-mono;
+    }
+    
+    /* =========================================
+    Default typography
+    ========================================= */
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-primary
+    }
+
+    h1, .richtext h1 {
+        @apply text-5xl leading-[125%] font-bold md:text-6xl md:leading-[4rem];
+    }
+
+    h2, .richtext h2 {
+        @apply text-2xl leading-[125%] font-bold;
+    }
+
+    h3, .richtext h3 {
+        @apply text-xl leading-[150%] font-bold;
+    }
+
+    h4, .richtext h4 {
+        @apply text-lg leading-[1.625rem] font-semibold;
+    }
+
+    h5, .richtext h5 {
+        @apply text-base leading-6 font-semibold;
+    }
+
+    h6, .richtext h6 {
+        @apply text-sm leading-5 font-semibold;
+    }
+
+    p, .richtext p {
+        @apply text-base leading-6 text-default;
+    }
+
+    li, .richtext li {
+        @apply ml-4 list-disc;
+    }
+
+    a, link, .richtext a, .richtext link {
+        @apply cursor-pointer text-accent;
+    }
+
+    a:hover, link:hover, .richtext a:hover, .richtext link:hover {
+        @apply text-highlight;
+    }
+
+
+    /* =========================================
+    Darkmode typography
+    ========================================= */
+
+    .darkmode h1,
+    .darkmode h2,
+    .darkmode h3,
+    .darkmode h4,
+    .darkmode h5,
+    .darkmode h6,
+    .darkmode p,
+    .darkmode a {
+        color: #fff;
+    }
+
+    .darkmode a:hover {
+        color: #bae6fd;
+    }
+
+
+    .bg-gradient h1,
+    .bg-gradient h3,
+    .bg-gradient h2,
+    .bg-gradient h4,
+    .bg-gradient h5,
+    .bg-gradient h6,
+    .bg-gradient p,
+    .bg-gradient a {
+        color: #fff;
+    }
+
+    .bg-gradient a:hover {
+        color: #bae6fd;
     }
 }
-
-
-/* =========================================
-   Darkmode typography
-   ========================================= */
-
-.darkmode h1,
-.darkmode h2,
-.darkmode h3,
-.darkmode h4,
-.darkmode h5,
-.darkmode h6,
-.darkmode p,
-.darkmode a {
-    color: #fff;
-}
-
-.darkmode a:hover {
-    color: #bae6fd;
-}
-
-
-/* =========================================
-   Card component typography
-   ========================================= */
-
-/* .card h2 {
-    font-size: 1.75rem;
-    line-height: 125%;
-    margin-bottom: 1rem;
-}
-
-.card h3 {
-    font-size: 1.5rem;
-    line-height: 125%;
-    margin-bottom: 1rem;
-}
-
-.card h4 {
-    font-size: 1.15rem;
-    line-height: 150%;
-    margin-bottom: 1rem;
-} */

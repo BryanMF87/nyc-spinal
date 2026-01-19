@@ -4,10 +4,9 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 
 const LinkBlok = ({ blok }) => {
 
-
   const { link_to, icon_position, text_size } = blok;
 
-  const baseClasses = `inline-flex items-center text-[#0062B1] hover:text-[#003666] transition duration-200`;
+  const baseClasses = `inline-flex items-center transition duration-200`;
 
   const textSizeClasses = {
     sm: "text-sm",

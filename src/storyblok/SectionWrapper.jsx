@@ -3,7 +3,7 @@ import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 export default function SectionWrapper({ blok }) {
 
   const {
-    background_color,
+    background_color = "bg-light-gray",
     background_image,
     background_image_opacity,
     spacing_vertical,

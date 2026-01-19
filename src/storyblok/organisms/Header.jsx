@@ -2,7 +2,7 @@ import { useState } from "react";
 import { StoryblokComponent } from "@storyblok/react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import HeaderItemMobile from "./HeaderItemMobile";
+import HeaderItemMobile from "../molecules/HeaderItemMobile";
 
 const Header = ({ blok }) => {
   const [mobileOpen, setMobileOpen] = useState(false);

@@ -1,15 +1,78 @@
 /** @type {import('tailwindcss').Config} */
+
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  theme: {
+    extend: {
+     fontFamily: {
+      body: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        'Oxygen',
+        'Ubuntu',
+        'Cantarell',
+        '"Fira Sans"',
+        '"Droid Sans"',
+        '"Helvetica Neue"',
+        'sans-serif',
+      ],
+      mono: [
+        'Menlo',
+        'Monaco',
+        'Consolas',
+        '"Courier New"',
+        'monospace',
+      ],
+    },
+      colors: {
+        /* 
+          1. Storyblok holds design tokens in Storyblok databases
+          2. Tailwind defines tokens and safelists all options
+          3. Styles directly applied to component via props (i.e. - blok.background_color = bg-white) 
+        */
+
+
+        // text options
+          primary: '#003666',
+          secondary: '#0062B1',
+          accent: colors.sky[700],
+          highlight: colors.blue[600],
+          light: colors.sky[200],
+          default: colors.gray[800],
+          // text-white - default tailwind class
+
+        // background options
+          // bg-transparent - default tailwind class
+          // bg-white - default tailwind class
+          'light-gray': colors.sky[50],
+          'light-blue': colors.sky[100],
+          // gradient - defined in plugins below
+      },
+    },
+  },
   safelist: [
-    //text colors - make sure this matches the Storyblok color databases
-    "text-white",
-    "text-grey-800",
-    "text-[#003666]",
-    "text-sky-700",
-    "text-blue-600",
+
+    // Background colors
+    "bg-light-gray",
+    "bg-light-blue",
+    "bg-gradient",
+    "bg-white",
+    "bg-transparent",
+
+    // Text colors
+    "text-primary",
+    "text-secondary",
+    "text-accent",
+    "text-highlight",
+    "text-light",
+    "text-default",
+
 
     // text sizes
     "text-base",
@@ -30,5 +93,13 @@ module.exports = {
     "mb-6",
     "mb-8",
   ],
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.bg-gradient': {
+          backgroundImage: 'linear-gradient(to bottom right, #003666, #0062B1)',
+        },
+      })
+    },
+  ],
 }

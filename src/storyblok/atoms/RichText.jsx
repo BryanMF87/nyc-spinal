@@ -22,7 +22,7 @@ const RichText = ({ blok }) => {
       : text_align || "text-left";
 
   return (
-    <div className={`prose prose-sm ${alignClass} ${widthClass}`}>
+    <div className={`richtext space-y-4 ${alignClass} ${widthClass}`}>
       {render(blok.text)}
     </div>
   );
