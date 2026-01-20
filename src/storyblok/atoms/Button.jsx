@@ -22,7 +22,7 @@ const Button = ({ blok }) => {
 
     const widthClass = blok.fullWidth ? "w-full" : "w-fit";
 
-    const baseClasses = `bg-[#0062B1] hover:bg-[#003666] text-white font-normal flex items-center justify-center gap-2 font-semibold transition duration-300 ease-in-out text-sm md:text-base`;
+    const baseClasses = `bg-secondary text-white hover:bg-primary hover:text-white font-normal flex items-center justify-center gap-2 font-semibold transition duration-300 ease-in-out text-sm md:text-base`;
 
     const centerClass = blok.center ? "mx-auto" : "";
 

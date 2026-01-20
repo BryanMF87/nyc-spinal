@@ -16,7 +16,7 @@ export default function SubSection({ blok }) {
         {heading && (<h2 className="mb-6">{heading}</h2>)}
 
         {/* Body block */}
-        <div>
+        <div className="flex flex-col gap-6"v>
           {body?.map((nestedBlok) => (
             <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
           ))}

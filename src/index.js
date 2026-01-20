@@ -58,9 +58,9 @@ import AudioCard from './storyblok/molecules/AudioCard';
 import TableSection from './storyblok/TableSection';
 import Section1Col from './storyblok/Section1Col';
 import AccordionCard from './storyblok/molecules/AccordionCard';
-import FeaturedCard from './storyblok/FeaturedCard';
+import FeaturedCard from './storyblok/organisms/FeaturedCard';
 import SectionWrapper from './storyblok/SectionWrapper';
-import SubMenuItem from './storyblok/SubMenuItem';
+import SubMenuItem from './storyblok/atoms/SubMenuItem';
 import Footer from './storyblok/organisms/Footer';
 import FooterLocation from './storyblok/molecules/FooterLocation';
 import FooterLink from './storyblok/atoms/FooterLink';
@@ -82,6 +82,10 @@ import { BasicCard } from './storyblok/molecules/BasicCard';
 import HeaderItemMobile from './storyblok/molecules/HeaderItemMobile';
 import SubSection from './storyblok/organisms/SubSection';
 import MediaCard from './storyblok/molecules/MediaCard';
+import { ResourceSubCard } from './storyblok/molecules/ResourceSubCard';
+import SubHeading from './storyblok/atoms/SubHeading';
+import IconText from './storyblok/molecules/IconText';
+import CtaBanner from './storyblok/molecules/CTABanner';
 
 // import Storyblok components here
 storyblokInit({
@@ -144,7 +148,7 @@ storyblokInit({
         grid: Grid,
         layout_2_columns: Layout2Columns,
 
-      // Cards
+      // Molecules
         accordion_card: AccordionCard,
         audio_card: AudioCard,
         basic_card: BasicCard,
@@ -155,18 +159,21 @@ storyblokInit({
         card_presentation: CardPresentation,
         card_publication: CardPublication,
         card_treatment: CardTreatment,
+        cta_banner: CtaBanner,
         featured_card: FeaturedCard,
         info_card: InfoCard,
         media_card: MediaCard,
+        resource_sub_card: ResourceSubCard,
         thumbnail_card: ThumbnailCard,
 
-      // Elements
+      // Atoms
         accordion_group: AccordionGroup,
         banner: Banner,
         button: Button,
         heading: Heading,
         hero_banner: HeroBanner,
         icon: IconifyIcon,
+        icon_text: IconText,
         link: LinkBlok,
         logo_list: LogoList,
         map: Map,
@@ -175,6 +182,7 @@ storyblokInit({
         seo: SEO,
         social_icon: SocialIcon,
         stat: StatItem,
+        subheading: SubHeading,
         table_section: TableSection,
         header_item_mobile: HeaderItemMobile,
   }

@@ -25,8 +25,10 @@ export function BasicCard({ blok }) {
           {...storyblokEditable(blok)}
           className={`${background_color} ${shadowClass} text-left p-6 rounded-2xl flex flex-col gap-4`}
         >
-          {icon?.[0] && (<IconifyIcon blok={icon[0]}  size={"h-6 w-6"} />)}
-          {heading !== null && (<Tag>{heading}</Tag>)}
+          <div className="flex items-center gap-2">
+            {icon?.[0] && (<IconifyIcon blok={icon[0]}  size={"h-6 w-6"} />)}
+            {heading !== null && (<Tag>{heading}</Tag>)}
+          </div>
           {body?.map((childBlok) => (
             <StoryblokComponent
               blok={childBlok}

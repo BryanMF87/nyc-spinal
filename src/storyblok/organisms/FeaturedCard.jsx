@@ -4,7 +4,7 @@ export default function FeaturedCard ({blok}) {
     return (
         <div 
             {...storyblokEditable(blok)}
-            className="bg-gradient-to-br from-[#003666] to-[#0062B1] p-8 rounded-2xl text-white"
+            className="bg-gradient p-8 rounded-2xl"
         >
             <div className="grid md:grid-cols-3 gap-8 items-center">
                 <div className="md:col-span-1">
@@ -17,8 +17,8 @@ export default function FeaturedCard ({blok}) {
                     </div>
                 </div>
                 <div className="md:col-span-2 space-y-6">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white">{blok.heading}</h2>
-                    <p className="text-lg text-sky-100">{blok.description}</p>
+                    <h2 className="text-2xl md:text-3xl font-bold">{blok.heading}</h2>
+                    <p className="text-lg">{blok.description}</p>
                     <a 
                         className="inline-flex items-center bg-white text-[#003666] px-6 py-3 rounded-lg font-semibold hover:bg-sky-50 transition-all duration-300" 
                         href={blok.button_link.cached_url} 

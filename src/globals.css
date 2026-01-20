@@ -34,7 +34,7 @@
     }
 
     h4, .richtext h4 {
-        @apply text-lg leading-[1.625rem] font-semibold;
+        @apply text-2xl font-semibold;
     }
 
     h5, .richtext h5 {
@@ -50,7 +50,7 @@
     }
 
     li, .richtext li {
-        @apply ml-4 list-disc;
+        @apply ml-5 list-disc marker:text-accent;
     }
 
     a, link, .richtext a, .richtext link {
@@ -58,7 +58,7 @@
     }
 
     a:hover, link:hover, .richtext a:hover, .richtext link:hover {
-        @apply text-highlight;
+        @apply text-secondary;
     }
 
 
