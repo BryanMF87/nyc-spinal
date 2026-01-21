@@ -58,14 +58,14 @@ import AudioCard from './storyblok/molecules/AudioCard';
 import TableSection from './storyblok/TableSection';
 import Section1Col from './storyblok/Section1Col';
 import AccordionCard from './storyblok/molecules/AccordionCard';
-import FeaturedCard from './storyblok/organisms/FeaturedCard';
+import FeaturedCard from './storyblok/molecules/FeaturedCard';
 import SectionWrapper from './storyblok/SectionWrapper';
 import SubMenuItem from './storyblok/atoms/SubMenuItem';
 import Footer from './storyblok/organisms/Footer';
 import FooterLocation from './storyblok/molecules/FooterLocation';
 import FooterLink from './storyblok/atoms/FooterLink';
 import LogoList from './storyblok/LogoList';
-import CardDoctorFeatured from './storyblok/molecules/CardDoctorFeatured';
+import FeaturedDoctorCard from './storyblok/molecules/FeaturedDoctorCard.jsx/FeaturedDoctorCard';
 import CardTreatment from './storyblok/molecules/CardTreatment';
 import Layout2Columns from './storyblok/Layout2Columns';
 import CardFeaturedImage from './storyblok/CardFeaturedImage';
@@ -76,7 +76,6 @@ import SEO from './storyblok/SEO';
 import RufflePlayer from './storyblok/molecules/RufflePlayer';
 import Map from './storyblok/molecules/Map';
 import Heading from './storyblok/atoms/Heading';
-import CardDoctorSimple from './storyblok/molecules/CardDoctor';
 import SocialIcon from './storyblok/atoms/SocialIcon';
 import { BasicCard } from './storyblok/molecules/BasicCard';
 import HeaderItemMobile from './storyblok/molecules/HeaderItemMobile';
@@ -86,6 +85,7 @@ import { ResourceSubCard } from './storyblok/molecules/ResourceSubCard';
 import SubHeading from './storyblok/atoms/SubHeading';
 import IconText from './storyblok/molecules/IconText';
 import CtaBanner from './storyblok/molecules/CTABanner';
+import SimpleDoctorCard from './storyblok/molecules/SimpleDoctorCard';
 
 // import Storyblok components here
 storyblokInit({
@@ -153,8 +153,8 @@ storyblokInit({
         audio_card: AudioCard,
         basic_card: BasicCard,
         card: Card,
-        card_doctor_featured: CardDoctorFeatured,
-        card_doctor_simple: CardDoctorSimple,
+        featured_doctor_card: FeaturedDoctorCard,
+        simple_doctor_card: SimpleDoctorCard,
         card_featured_image: CardFeaturedImage,
         card_presentation: CardPresentation,
         card_publication: CardPublication,

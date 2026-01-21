@@ -1,6 +1,6 @@
 import { StoryblokComponent } from "@storyblok/react";
 
-export default function DoctorCardSimple({ blok }) {
+export default function SimpleDoctorCard({ blok }) {
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
       
