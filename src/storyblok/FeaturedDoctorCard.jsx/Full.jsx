@@ -1,15 +1,14 @@
 import { StoryblokComponent } from "@storyblok/react";
 
-const FeaturedDoctorCardFull = ({
-  image,
-  name,
-  title,
-  specialty,
-  description,
-  buttons,
-}) => {
+const FeaturedDoctorCardFull = ({blok}) => {
+  
+  if (!blok) return null; // safety check
+
+  const { image, name, title, specialty, description, buttons } = blok;
+
+
   return (
-    <div className="flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+    <div className="flex flex-col bg-white text-left rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
       
       {/* Image */}
       {image?.filename && (
@@ -25,31 +24,30 @@ const FeaturedDoctorCardFull = ({
       {/* Content */}
       <div className="flex flex-col flex-grow justify-between p-6 md:p-8">
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">
             {name}
           </h2>
 
           {title && (
-            <p className="text-base md:text-lg text-secondary mb-1">
+            <p className="text-base md:text-lg text-secondary mb-2">
               {title}
             </p>
           )}
 
           {specialty && (
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm mb-4">
               {specialty}
             </p>
           )}
 
           {description && (
-            <p className="text-gray-700 mb-6">
+            <p className="mb-6">
               {description}
             </p>
           )}
         </div>
 
-        {/* Buttons */}
-        {buttons.length > 0 && (
+        {buttons?.[0] && (
           <div className="flex flex-col sm:flex-row gap-4 sm:justify-between">
             {buttons.map((blok) => (
               <StoryblokComponent blok={blok} key={blok._uid} />

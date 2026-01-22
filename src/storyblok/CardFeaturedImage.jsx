@@ -2,7 +2,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 import { storyblokEditable } from "@storyblok/react";
 
 export default function CardFeaturedImage({ blok }) {
-  const { text, image, decor } = blok;
+  const { heading, text, image, decor } = blok;
 
   return (
     <div className="relative">
@@ -23,6 +23,7 @@ export default function CardFeaturedImage({ blok }) {
             <div className="absolute inset-0 bg-gradient-to-t from-[#003666]/50 to-transparent rounded-2xl" />
 
             <div className="darkmode absolute bottom-0 left-0 right-0 p-8 text-center">
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">{heading}</h3>
               {render(text)}
             </div>
 

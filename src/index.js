@@ -10,7 +10,7 @@ import { HelmetProvider } from "react-helmet-async";
 
 
 // Import React components here
-import Hero from './storyblok/organisms/Hero';
+import Hero from './storyblok/Hero';
 import Attention from './storyblok/Attention';
 import PhysicianShowcase from './storyblok/Physicians';
 import ServicesGrid from './storyblok/ServicesGrid';
@@ -42,50 +42,51 @@ import BookPage from './pages/GotYourBack';
 import OurPhysicians from './pages/OurPhysicians';
 import MeetDrShah from './pages/MeetDrShah';
 import Section from './storyblok/Section';
-import Header from './storyblok/organisms/Header';
-import HeaderItem from './storyblok/atoms/HeaderItem';
+import Header from './storyblok/Header';
+import HeaderItem from './storyblok/HeaderItem';
 import Card from './storyblok/Card';
-import RichText from './storyblok/atoms/RichText';
-import Button from './storyblok/atoms/Button';
-import IconifyIcon from './storyblok/atoms/IconifyIcon';
+import RichText from './storyblok/RichText';
+import Button from './storyblok/Button';
+import IconifyIcon from './storyblok/IconifyIcon';
 import Section2ColAsym from './storyblok/Section2ColAsym';
-import HeroBanner from './storyblok/organisms/HeroBanner';
-import AccordionGroup from './storyblok/organisms/AccordianGroup';
+import HeroBanner from './storyblok/HeroBanner';
+import AccordionGroup from './storyblok/AccordianGroup';
 import ThumbnailCard from './storyblok/ThumbnailCard';
-import Grid from './storyblok/atoms/Grid';
-import LinkBlok from './storyblok/atoms/LinkBlok';
-import AudioCard from './storyblok/molecules/AudioCard';
+import Grid from './storyblok/Grid';
+import LinkBlok from './storyblok/LinkBlok';
+import AudioCard from './storyblok/AudioCard';
 import TableSection from './storyblok/TableSection';
 import Section1Col from './storyblok/Section1Col';
-import AccordionCard from './storyblok/molecules/AccordionCard';
-import FeaturedCard from './storyblok/molecules/FeaturedCard';
+import AccordionCard from './storyblok/AccordionCard';
+import FeaturedCard from './storyblok/FeaturedCard';
 import SectionWrapper from './storyblok/SectionWrapper';
-import SubMenuItem from './storyblok/atoms/SubMenuItem';
-import Footer from './storyblok/organisms/Footer';
-import FooterLocation from './storyblok/molecules/FooterLocation';
-import FooterLink from './storyblok/atoms/FooterLink';
+import SubMenuItem from './storyblok/SubMenuItem';
+import Footer from './storyblok/Footer';
+import FooterLocation from './storyblok/FooterLocation';
+import FooterLink from './storyblok/FooterLink';
 import LogoList from './storyblok/LogoList';
-import FeaturedDoctorCard from './storyblok/molecules/FeaturedDoctorCard.jsx/FeaturedDoctorCard';
-import CardTreatment from './storyblok/molecules/CardTreatment';
+import FeaturedDoctorCard from './storyblok/FeaturedDoctorCard.jsx/FeaturedDoctorCard';
+import CardTreatment from './storyblok/CardTreatment';
 import Layout2Columns from './storyblok/Layout2Columns';
 import CardFeaturedImage from './storyblok/CardFeaturedImage';
 import StatItem from './storyblok/StatItem';
-import CardPresentation from './storyblok/molecules/CardPresentation';
-import CardPublication from './storyblok/molecules/CardPublication';
+import CardPresentation from './storyblok/CardPresentation';
+import CardPublication from './storyblok/CardPublication';
 import SEO from './storyblok/SEO';
-import RufflePlayer from './storyblok/molecules/RufflePlayer';
-import Map from './storyblok/molecules/Map';
-import Heading from './storyblok/atoms/Heading';
-import SocialIcon from './storyblok/atoms/SocialIcon';
-import { BasicCard } from './storyblok/molecules/BasicCard';
-import HeaderItemMobile from './storyblok/molecules/HeaderItemMobile';
-import SubSection from './storyblok/organisms/SubSection';
-import MediaCard from './storyblok/molecules/MediaCard';
-import { ResourceSubCard } from './storyblok/molecules/ResourceSubCard';
-import SubHeading from './storyblok/atoms/SubHeading';
-import IconText from './storyblok/molecules/IconText';
-import CtaBanner from './storyblok/molecules/CTABanner';
-import SimpleDoctorCard from './storyblok/molecules/SimpleDoctorCard';
+import RufflePlayer from './storyblok/RufflePlayer';
+import Map from './storyblok/Map';
+import Heading from './storyblok/Heading';
+import SocialIcon from './storyblok/SocialIcon';
+import { BasicCard } from './storyblok/BasicCard';
+import HeaderItemMobile from './storyblok/HeaderItemMobile';
+import SubSection from './storyblok/SubSection';
+import MediaCard from './storyblok/MediaCard';
+import { ResourceSubCard } from './storyblok/ResourceSubCard';
+import SubHeading from './storyblok/SubHeading';
+import IconText from './storyblok/IconText';
+import CtaBanner from './storyblok/CTABanner';
+import SimpleDoctorCard from './storyblok/SimpleDoctorCard';
+import HeadingSection from './storyblok/HeadingSection';
 
 // import Storyblok components here
 storyblokInit({
@@ -154,6 +155,7 @@ storyblokInit({
         basic_card: BasicCard,
         card: Card,
         featured_doctor_card: FeaturedDoctorCard,
+        heading_section: HeadingSection,
         simple_doctor_card: SimpleDoctorCard,
         card_featured_image: CardFeaturedImage,
         card_presentation: CardPresentation,

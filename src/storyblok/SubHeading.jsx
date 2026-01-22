@@ -3,6 +3,7 @@ export default function SubHeading({ blok }) {
   const {
     title,
     size,
+    color = 'default',
   } = blok
 
   const sizeClass = {
@@ -11,5 +12,5 @@ export default function SubHeading({ blok }) {
     lg: 'text-lg md:text-2xl',
   }
 
-  return <p className={`${sizeClass[size]}`}>{title}</p>
+  return <p className={`${sizeClass[size]} ${color}`}>{title}</p>
 }

@@ -1,4 +1,4 @@
-import LinkBlok from "../atoms/LinkBlok";
+import LinkBlok from "./LinkBlok";
 
 const MediaCard = ({ blok }) => {
   const {

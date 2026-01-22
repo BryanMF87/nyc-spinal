@@ -1,5 +1,5 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
-import IconifyIcon from "../atoms/IconifyIcon";
+import IconifyIcon from "./IconifyIcon";
 
 export function BasicCard({ blok }) {
 
