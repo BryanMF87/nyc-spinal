@@ -7,8 +7,8 @@ const Button = ({ blok }) => {
         text,
         link,
         arrow_icon,
-        type = "primary",   // "primary" or "white"
-        variant = "filled", // "filled" or "outline"
+        type = "primary", 
+        variant = "filled",
         size = "large",
         borderRadius = "medium",
         fullWidth = false,
@@ -62,7 +62,23 @@ const Button = ({ blok }) => {
             hoverText: "hover:text-primary",
         },
     },
-};
+    accent: {
+      filled: {
+          bg: "bg-accent",
+          text: "text-white",
+          hoverBg: "hover:bg-secondary",
+          border: "",
+          hoverText: "hover:text-white",
+      },
+      outline: {
+          bg: "bg-transparent",
+          text: "text-accent",
+          hoverBg: "hover:bg-accent/10",
+          border: "border border-accent",
+          hoverText: "hover:text-accent",
+      }
+    }
+  };
 
 
   const { bg, text: textColor, hoverBg, border, hoverText } = typeStyles[type][variant];

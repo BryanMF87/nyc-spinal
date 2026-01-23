@@ -21,7 +21,7 @@ export default function IconText({ blok }) {
   return (
     <div
       {...storyblokEditable(blok)}
-      className={`flex items-start space-x-4`}
+      className={`flex items-start space-x-4 text-left`}
     >
         {icon?.icon && (
             <Icon

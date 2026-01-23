@@ -38,10 +38,10 @@ module.exports = {
         */
 
 
-        // text options
+        // text and button options
           primary: '#003666',
           secondary: '#0062B1',
-          accent: colors.sky[700],
+          accent: colors.sky[600],
           highlight: colors.blue[600],
           light: colors.sky[200],
           default: colors.gray[800],

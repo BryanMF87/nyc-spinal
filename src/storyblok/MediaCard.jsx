@@ -42,7 +42,7 @@ const MediaCard = ({ blok }) => {
 
       {/* 🧾 Card Body */}
       <div className={`flex flex-col gap-6 h-fit text-left p-6 ${roundTop}`}>
-        {heading && (<h3 class="text-xl font-bold">{heading}</h3>)}
+        {heading && (<h3 className="text-xl font-bold">{heading}</h3>)}
         {text && (<p>{text}</p>)}
         {link?.[0] && (<LinkBlok blok={link[0]} />)}
       </div>
