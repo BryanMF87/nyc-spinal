@@ -39,8 +39,6 @@ const MediaCard = ({ blok }) => {
         </div>
       )}
 
-
-      {/* 🧾 Card Body */}
       <div className={`flex flex-col gap-6 h-fit text-left p-6 ${roundTop}`}>
         {heading && (<h3 className="text-xl font-bold">{heading}</h3>)}
         {text && (<p>{text}</p>)}

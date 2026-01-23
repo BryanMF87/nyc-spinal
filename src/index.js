@@ -83,10 +83,12 @@ import SubSection from './storyblok/SubSection';
 import MediaCard from './storyblok/MediaCard';
 import { ResourceSubCard } from './storyblok/ResourceSubCard';
 import SubHeading from './storyblok/SubHeading';
-import IconText from './storyblok/IconText';
+import IconText from './storyblok/IconText/IconText';
 import CtaBanner from './storyblok/CTABanner';
 import SimpleDoctorCard from './storyblok/SimpleDoctorCard';
 import HeadingSection from './storyblok/HeadingSection';
+import MegaCTABanner from './storyblok/MegaCTABanner';
+import FeatureBanner from './storyblok/FeatureBanner';
 
 // import Storyblok components here
 storyblokInit({
@@ -149,44 +151,44 @@ storyblokInit({
         grid: Grid,
         layout_2_columns: Layout2Columns,
 
-      // Molecules
+      // bloks
         accordion_card: AccordionCard,
+        accordion_group: AccordionGroup,
         audio_card: AudioCard,
+        banner: Banner,
         basic_card: BasicCard,
+        button: Button,
         card: Card,
-        featured_doctor_card: FeaturedDoctorCard,
-        heading_section: HeadingSection,
-        simple_doctor_card: SimpleDoctorCard,
         card_featured_image: CardFeaturedImage,
         card_presentation: CardPresentation,
         card_publication: CardPublication,
         card_treatment: CardTreatment,
         cta_banner: CtaBanner,
+        feature_banner: FeatureBanner,
         featured_card: FeaturedCard,
-        info_card: InfoCard,
-        media_card: MediaCard,
-        resource_sub_card: ResourceSubCard,
-        thumbnail_card: ThumbnailCard,
-
-      // Atoms
-        accordion_group: AccordionGroup,
-        banner: Banner,
-        button: Button,
+        featured_doctor_card: FeaturedDoctorCard,
         heading: Heading,
+        heading_section: HeadingSection,
+        header_item_mobile: HeaderItemMobile,
         hero_banner: HeroBanner,
         icon: IconifyIcon,
         icon_text: IconText,
+        info_card: InfoCard,
         link: LinkBlok,
         logo_list: LogoList,
         map: Map,
+        media_card: MediaCard,
+        mega_cta_banner: MegaCTABanner,
+        resource_sub_card: ResourceSubCard,
         richtext: RichText,
         ruffle_player: RufflePlayer,
         seo: SEO,
+        simple_doctor_card: SimpleDoctorCard,
         social_icon: SocialIcon,
         stat: StatItem,
         subheading: SubHeading,
         table_section: TableSection,
-        header_item_mobile: HeaderItemMobile,
+        thumbnail_card: ThumbnailCard,
   }
 })
 
