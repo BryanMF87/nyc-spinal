@@ -6,10 +6,10 @@ export default function IconTextFeatured({ blok }) {
 
   return (
     <div {...storyblokEditable(blok)} className="text-left">
-      <div className="flex items-center space-x-4 mb-4">
+      <div className="flex items-center space-x-4">
         <div
           className={`p-3 rounded-lg ${
-            color ? "bg-white/10" : "bg-secondary/90"
+            color ? "bg-light-blue" : "bg-white/10"
           }`}
         >
           {icon && (
@@ -34,7 +34,7 @@ export default function IconTextFeatured({ blok }) {
       </div>
 
       {text && (
-        <p className={`${color ? "text-white" : "text-default"} pl-16`}>
+        <p className={`${color ? "text-default" : "text-white"} pl-16`}>
           {text}
         </p>
       )}

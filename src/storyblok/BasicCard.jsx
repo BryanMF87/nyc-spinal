@@ -57,16 +57,20 @@ export function BasicCard({ blok }) {
       {layout === "indent body" && (
         <div
           {...storyblokEditable(blok)}
-          className={`${background_color} ${shadowClass} text-left p-6 rounded-2xl flex flex-col gap-4`}
+          className={`${background_color} ${shadowClass} text-left p-6 rounded-2xl flex flex-col `}
         >
-          {icon?.[0] && (<IconifyIcon blok={icon[0]}  size={"h-6 w-6"} />)}
-          {heading && (<Tag>{heading}</Tag>)}
-          {body?.map((childBlok) => (
-            <StoryblokComponent
-              blok={childBlok}
-              key={childBlok._uid}
-            />
-          ))}
+          <div className="flex items-center space-x-4">
+            {icon?.[0] && (<IconifyIcon blok={icon[0]}  size={"h-6 w-6"} />)}
+            {heading && (<Tag>{heading}</Tag>)}
+          </div>
+          <div className="pl-16">
+            {body?.map((childBlok) => (
+              <StoryblokComponent
+                blok={childBlok}
+                key={childBlok._uid}
+              />
+            ))}
+          </div>
         </div>
       )}
     </>

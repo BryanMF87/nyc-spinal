@@ -33,7 +33,7 @@ export default function AccordionCard({ blok }) {
 
       {/* Expanded Content */}
       {isOpen && (
-        <div className={`px-6 py-4 bg-sky-100`}>
+        <div className={`px-6 py-4 bg-sky-100 flex flex-col gap-4`}>
             {body?.map((nestedBlok) => (
                 <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
             ))}

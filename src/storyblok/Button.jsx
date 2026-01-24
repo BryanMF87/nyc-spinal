@@ -56,9 +56,9 @@ const Button = ({ blok }) => {
         },
         outline: {
             bg: "bg-transparent",
-            text: "text-primary",
-            hoverBg: "hover:bg-white/20",
-            border: "border border-primary",
+            text: "text-white",
+            hoverBg: "hover:bg-white",
+            border: "border-2 border-white",
             hoverText: "hover:text-primary",
         },
     },

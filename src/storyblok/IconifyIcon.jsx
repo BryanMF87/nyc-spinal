@@ -1,24 +1,25 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 
-const IconifyIcon = ({ blok, size }) => {
+const IconifyIcon = ({ blok, size = "w-6 h-6" }) => {
 
-const {
-  icon,
-  text_color,
-  box,
-  box_color,
-} = blok;
-
-  const iconClasses = [
-    size,      // controlled by parent
+  const {
+    icon,
     text_color,
-    box ? "p-3 rounded-lg" : "",
-    box ? box_color : "",
-  ].filter(Boolean).join(" ");
+    box,
+    box_color,
+  } = blok;
 
+  const boxClasses = box 
+    ? `p-3 rounded-lg w-fit ${box_color}` 
+    : ""
 
-   return <Icon icon={icon.icon} className={iconClasses}/>
-
+  return (
+    <div className={`${boxClasses} shrink-0 inline-flex items-center justify-center`}>
+      <Icon icon={icon.icon} 
+        className={`${size} ${text_color} block`}
+      />
+    </div>
+  )
 };
 
 export default IconifyIcon;

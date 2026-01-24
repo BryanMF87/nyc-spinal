@@ -26,7 +26,7 @@
     }
 
     h2, .richtext h2 {
-        @apply text-2xl leading-[125%] font-bold;
+        @apply text-3xl leading-[125%] font-bold;
     }
 
     h3, .richtext h3 {
@@ -50,7 +50,7 @@
     }
 
     li, .richtext li {
-        @apply ml-5 list-disc marker:text-secondary;
+        @apply ml-5 mb-2 list-disc marker:text-secondary;
     }
 
     a, link, .richtext a, .richtext link {
