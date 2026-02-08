@@ -1,7 +1,7 @@
 export default function Map({ blok }) {
     
   const heightMap = {
-    sm: "h-[300px]",
+    sm: "h-[200px]",
     md: "h-[450px]",
     lg: "h-[600px]",
     xl: "h-[750px]",
@@ -9,9 +9,11 @@ export default function Map({ blok }) {
 
   const heightClass = heightMap[blok.height || "lg"];
 
+  const paddingClass = blok.padding ? "p-6" : ""
+
   return (
     <div
-      className={`bg-white p-6 rounded-2xl shadow-lg ${heightClass}`}
+      className={`bg-white rounded-2xl shadow-lg ${paddingClass[blok.padding]} ${heightClass}`}
     >
       <iframe
         title={blok.title || "Map"}

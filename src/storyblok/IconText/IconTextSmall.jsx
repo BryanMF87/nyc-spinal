@@ -7,38 +7,36 @@ export default function IconTextSmall({ blok }) {
   return (
     <div
       {...storyblokEditable(blok)}
-      className="flex items-start space-x-4"
+      className="flex flex-col"
     >
-      {icon && (
-        <Icon
-          icon={icon}
-          className={`w-6 h-6 flex-shrink-0 mt-1 ${
-            color ? "text-white" : "text-secondary"
-          }`}
-        />
-      )}
+      <div className="flex items-center space-x-3">
+        {icon && (
+          <Icon
+            icon={icon.icon}
+            className={`w-6 h-6 flex-shrink-0 ${
+              color ? "text-secondary" : "text-white"
+            }`}
+          />
+        )}
 
-      <div>
         {heading && (
           <h4
-            className={`font-semibold mb-1 ${
-              color ? "text-white" : "text-primary"
+            className={`font-semibold ${
+              color ? "text-primary" : "text-white"
             }`}
           >
             {heading}
           </h4>
         )}
+      </div>
 
-        {text && (
-          <p
-            className={`text-sm ${
-              color ? "text-white/90" : "text-gray-600"
-            }`}
-          >
+      {text && (
+        <div className="mt-.5 ml-9">
+          <p className={`text-sm ${color ? "text-default" : "text-white"}`}>
             {text}
           </p>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

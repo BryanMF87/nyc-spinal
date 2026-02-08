@@ -81,7 +81,7 @@ import { BasicCard } from './storyblok/BasicCard';
 import HeaderItemMobile from './storyblok/HeaderItemMobile';
 import SubSection from './storyblok/SubSection';
 import MediaCard from './storyblok/MediaCard';
-import { ResourceSubCard } from './storyblok/ResourceSubCard';
+import LinkCard from './storyblok/LinkCard';
 import SubHeading from './storyblok/SubHeading';
 import IconText from './storyblok/IconText/IconText';
 import CtaBanner from './storyblok/CTABanner';
@@ -179,7 +179,7 @@ storyblokInit({
         map: Map,
         media_card: MediaCard,
         mega_cta_banner: MegaCTABanner,
-        resource_sub_card: ResourceSubCard,
+        link_card: LinkCard,
         richtext: RichText,
         ruffle_player: RufflePlayer,
         seo: SEO,
