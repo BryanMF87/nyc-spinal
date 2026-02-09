@@ -31,11 +31,11 @@ function App() {
         <StoryblokComponent blok={headerBlok} />
       )}
 
-        <main>
-          <Routes>
-            <Route path="/*" element={<StoryblokContent />} />
-          </Routes>
-        </main>
+      <main>
+        <Routes>
+          <Route path="/*" element={<StoryblokContent />} />
+        </Routes>
+      </main>
 
       {!isGlobalSettingsPage && footerBlok && (
         <StoryblokComponent blok={footerBlok} />
