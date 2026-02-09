@@ -21,8 +21,12 @@ function App() {
 
   const isGlobalSettingsPage = location.pathname === "/global-settings";
 
+  const isStoryblokEditor = // disable clicks
+    typeof window !== "undefined" &&
+    window.location.search.includes("_storyblok");
+
   return (
-    <>
+    <div className={isStoryblokEditor ? "sb-editor" : ""}>
       {!isGlobalSettingsPage && headerBlok && (
         <StoryblokComponent blok={headerBlok} />
       )}
@@ -36,7 +40,7 @@ function App() {
       {!isGlobalSettingsPage && footerBlok && (
         <StoryblokComponent blok={footerBlok} />
       )}
-    </>
+    </div>
   );
 }
 
