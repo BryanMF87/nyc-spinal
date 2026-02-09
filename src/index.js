@@ -90,6 +90,7 @@ import HeadingSection from './storyblok/HeadingSection';
 import MegaCTABanner from './storyblok/MegaCTABanner';
 import FeatureBanner from './storyblok/FeatureBanner';
 import ListItem from './storyblok/ListItem';
+import MediaBlock from './storyblok/MediaBlock';
 
 // import Storyblok components here
 storyblokInit({
@@ -106,16 +107,7 @@ storyblokInit({
       sub_menu_item: SubMenuItem,
       page: Page,
 
-    // home page components
-      hero: Hero,
-      attention: Attention,
-      physician_showcase: PhysicianShowcase,
-      services_grid: ServicesGrid,
-      about_practice: AboutPractice,
-      life_impact: LifeImpact,
-      schedule_consultation: ScheduleConsultation,
-
-    // page template components
+    // page template components - depreciating
       about_page: AboutOurPractice,
       accessibility_page: AccessibilityStatement,
       appointment_page: AppointmentPage,
@@ -140,17 +132,20 @@ storyblokInit({
     // Page building components
 
       // Sections
-        section: Section,
-        section_1_col: Section1Col,
+        section: Section, // depreciating
+        section_1_col: Section1Col, // depreciating
         section_wrapper: SectionWrapper,
-        section_2_col_uneven: Section2ColAsym,
-        sub_section: SubSection,
+        section_2_col_uneven: Section2ColAsym, // depreciating
+        sub_section: SubSection, // depreciating
 
       // Layouts
-        column: Column,
-        columns: Columns,
+        column: Column, // depreciating
+        columns: Columns, // depreciating
         grid: Grid,
         layout_2_columns: Layout2Columns,
+
+        hero: Hero,
+        services_grid: ServicesGrid,
 
       // bloks
         accordion_card: AccordionCard,
@@ -179,6 +174,7 @@ storyblokInit({
         list_item: ListItem,
         logo_list: LogoList,
         map: Map,
+        media_block, MediaBlock,
         media_card: MediaCard,
         mega_cta_banner: MegaCTABanner,
         link_card: LinkCard,
