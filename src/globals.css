@@ -5,12 +5,6 @@
 
 @layer base {
 
-    .sb-editor a,
-    .sb-editor button {
-        pointer-events: none; 
-        /* disables visual editor clicks */
-    }
-
     body, .richtext {
         @apply font-body antialiased;
     }
