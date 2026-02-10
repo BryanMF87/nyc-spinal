@@ -33,6 +33,7 @@ const MediaBlock = ({ blok }) => {
       ) : (
         <img
           src={mediaSrc}
+          alt={image.alt || ""}
           className="w-full h-full object-cover"
         />
       )}
