@@ -1,5 +1,5 @@
 const MediaBlock = ({ blok }) => {
-  const { image, video, height } = blok;
+  const { image, video, height, rounded } = blok;
 
   // Default height if none selected
   const heightClassMap = {
@@ -9,8 +9,8 @@ const MediaBlock = ({ blok }) => {
     lg: "h-80",
   };
 
-  const heightClass = heightClassMap[height] || "h-64"; // default to md
-  const roundedClass = "rounded-2xl"; // optional fixed rounding
+  const heightClass = heightClassMap[height] || "h-64";
+  const roundedClass = rounded ? "rounded-2xl" : ""; 
   
 
   // Decide which media to show
@@ -23,12 +23,9 @@ const MediaBlock = ({ blok }) => {
     <div className={`relative ${heightClass} ${roundedClass} overflow-hidden`}>
       {isVideo ? (
         <video
-          src={mediaSrc}
-          className="w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
+            src={mediaSrc}
+            className="w-full h-full object-cover"
+            controls
         />
       ) : (
         <img
