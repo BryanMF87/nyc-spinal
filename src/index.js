@@ -11,12 +11,7 @@ import { HelmetProvider } from "react-helmet-async";
 
 // Import React components here
 import Hero from './storyblok/Hero';
-import Attention from './storyblok/Attention';
-import PhysicianShowcase from './storyblok/Physicians';
 import ServicesGrid from './storyblok/ServicesGrid';
-import AboutPractice from './storyblok/AboutPractice';
-import LifeImpact from './storyblok/LifeImpact';
-import ScheduleConsultation from './storyblok/ScheduleConsultation';
 import AboutOurPractice from './pages/About';
 import AllConditions from './pages/AllConditions';
 import AllProcedures from './pages/AllProcedures';
@@ -174,7 +169,7 @@ storyblokInit({
         list_item: ListItem,
         logo_list: LogoList,
         map: Map,
-        media_block, MediaBlock,
+        media_block: MediaBlock,
         media_card: MediaCard,
         mega_cta_banner: MegaCTABanner,
         link_card: LinkCard,

@@ -7,7 +7,7 @@ const HeaderItem = ({ blok }) => {
     <div className="relative group focus-within">
       <Link
         to={"/" + blok.link?.cached_url}
-        className="flex items-center space-x-1 text-gray-600 hover:text-blue-600"
+        className="flex items-center space-x-1 text-default hover:text-secondary"
       >
         <span>{blok.title}</span>
         {blok.submenu?.length > 0 && <ChevronDown size={16} />}
