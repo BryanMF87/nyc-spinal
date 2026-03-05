@@ -39,10 +39,10 @@ export default function Headline({
 
   const variants = {
     "page-hero": "text-4xl font-bold leading-[135%] md:text-6xl md:leading-[125%]",
-    "section-hero": "text-3xl md:text-5xl font-bold leading-tight",
-    "section": "text-2xl md:text-3xl font-semibold leading-snug",
-    "card": "text-xl md:text-2xl font-semibold leading-snug",
-    "label": "text-base md:text-lg font-semibold leading-snug",
+    "section-hero": "text-3xl font-bold leading-[135%] md:text-5xl md:leading-[125%]",
+    "section": "text-2xl font-semibold leading-[135%] md:text-3xl md:leading-[125%]",
+    "card": "text-xl font-semibold leading-[135%] md:text-2xl md:leading-[125%]",
+    "label": "text-base font-semibold leading-[135%] md:text-lg md:leading-[125%]",
   };
 
   return (
