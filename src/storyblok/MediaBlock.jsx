@@ -9,7 +9,7 @@ const MediaBlock = ({ blok }) => {
     lg: "h-80",
   };
 
-  const heightClass = heightClassMap[height] || "h-64";
+  const heightClass = heightClassMap[height];
   const roundedClass = rounded ? "rounded-2xl" : ""; 
   
 

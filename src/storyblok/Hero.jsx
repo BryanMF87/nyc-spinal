@@ -33,14 +33,27 @@ const Hero = ({blok}) => {
       {...storyblokEditable(blok)}
     >
       
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-normal"
-        style={{
-          backgroundImage: `url(${blok.background_image.filename})`,
-          transform: `scale(1.1) translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`,
-          transition: 'transform 0.3s ease-out',
-        }}
-      />
+      <div className="absolute inset-0 overflow-hidden">
+        <img
+          src={`${blok.background_image.filename}/m/1600x800/filters:quality(70):format(webp)`}
+          srcSet={`
+            ${blok.background_image.filename}/m/768x384/filters:quality(70):format(webp) 768w,
+            ${blok.background_image.filename}/m/1280x640/filters:quality(70):format(webp) 1280w,
+            ${blok.background_image.filename}/m/1600x800/filters:quality(70):format(webp) 1600w
+          `}
+          sizes="100vw"
+          width="1600"
+          height="800"
+          alt=""
+          loading="eager"
+          fetchpriority="high"
+          className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-normal will-change-transform"
+          style={{
+            transform: `scale(1.1) translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`,
+            transition: 'transform 0.3s ease-out',
+          }}
+        />
+      </div>
 
       
       <div

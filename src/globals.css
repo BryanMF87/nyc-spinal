@@ -1,94 +1,101 @@
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind base;
-
 
 @layer base {
 
-    body, .richtext {
-        @apply font-body antialiased;
+  /* =========================================
+   Base app defaults (VERY minimal)
+  ========================================= */
+
+  body {
+    @apply font-body antialiased text-default;
+  }
+
+  code {
+    @apply font-mono;
+  }
+
+  /* =========================================
+   Storyblok Rich Text ONLY
+   (This is your CMS typography contract)
+  ========================================= */
+
+  .richtext {
+    @apply font-body;
+  }
+
+  /* Headings */
+  .richtext h1 {
+    @apply text-5xl font-bold leading-[1.25] text-primary md:text-6xl;
+  }
+
+  .richtext h2 {
+    @apply text-3xl font-bold leading-[1.25] text-primary;
+  }
+
+  .richtext h3 {
+    @apply text-xl font-bold leading-[1.25] text-primary;
+  }
+
+  .richtext h4 {
+    @apply text-lg font-semibold text-primary;
+  }
+
+  .richtext h5 {
+    @apply text-base font-semibold leading-6 text-primary;
+  }
+
+  .richtext h6 {
+    @apply text-sm font-semibold leading-5 text-primary;
+  }
+
+  /* Prevent bold text from changing fonts */
+  .richtext h1 b,
+  .richtext h2 b,
+  .richtext h3 b,
+  .richtext h4 b,
+  .richtext h5 b,
+  .richtext h6 b,
+  .richtext h1 strong,
+  .richtext h2 strong,
+  .richtext h3 strong,
+  .richtext h4 strong,
+  .richtext h5 strong,
+  .richtext h6 strong {
+    font-family: inherit;
+  }
+
+  /* Body text */
+  .richtext p {
+    @apply text-lg leading-relaxed text-default;
+  }
+
+  .richtext li {
+    @apply ml-5 mb-2 list-disc marker:text-secondary;
+  }
+
+  .richtext a {
+    @apply text-secondary underline cursor-pointer;
+  }
+
+  .richtext a:hover {
+    @apply text-secondary;
+  }
+
+  /* =========================================
+   Dark / gradient sections (scoped)
+  ========================================= */
+
+  .darkmode .richtext,
+  .bg-gradient .richtext {
+    h1, h2, h3, h4, h5, h6, p, a {
+      color: #fff;
     }
+  }
 
-    code {
-        @apply font-mono;
-    }
-    
-    /* =========================================
-    Default typography
-    ========================================= */
-
-    h1, h2, h3, h4, h5, h6 {
-        @apply text-primary
-    }
-
-    h1, .richtext h1 {
-        @apply text-5xl leading-[125%] font-bold md:text-6xl md:leading-[4rem];
-    }
-
-    h2, .richtext h2 {
-        @apply text-3xl leading-[125%] font-bold;
-    }
-
-    h3, .richtext h3 {
-        @apply text-xl leading-[150%] font-bold;
-    }
-
-    h4, .richtext h4 {
-        @apply text-lg font-semibold;
-    }
-
-    h5, .richtext h5 {
-        @apply text-base leading-6 font-semibold;
-    }
-
-    h6, .richtext h6 {
-        @apply text-sm leading-5 font-semibold;
-    }
-
-    p, .richtext p {
-        @apply text-base leading-6 text-default;
-    }
-
-    li, .richtext li {
-        @apply ml-5 mb-2 list-disc marker:text-secondary;
-    }
-
-    a, link, .richtext a, .richtext link {
-        @apply cursor-pointer text-secondary;
-    }
-
-    a:hover, link:hover, .richtext a:hover, .richtext link:hover {
-        @apply text-secondary;
-    }
-
-
-    /* =========================================
-    Darkmode or gradient typography
-    ========================================= */
-
-    .darkmode h1,
-    .darkmode h2,
-    .darkmode h3,
-    .darkmode h4,
-    .darkmode h5,
-    .darkmode h6,
-    .darkmode p,
-    .darkmode a {
-        color: #fff;
-    }
-
-    .darkmode a:hover {
-        color: #bae6fd;
-    }
-
-
-    .bg-gradient h1,
-    .bg-gradient h3,
-    .bg-gradient h2,
-    .bg-gradient h4,
-    .bg-gradient h5,
-    .bg-gradient h6,
-    .bg-gradient p {
-        color: #fff;
-    }
+  .darkmode .richtext a:hover,
+  .bg-gradient .richtext a:hover {
+    color: #bae6fd;
+  }
 }
