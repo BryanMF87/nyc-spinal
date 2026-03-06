@@ -2,15 +2,9 @@ import { StoryblokComponent } from "@storyblok/react";
 import LinkBlok from "./LinkBlok";
 
 const MediaCard = ({ blok }) => {
-  const {
-    asset,
-    heading,
-    text,
-    link,
-  } = blok;
+  const { asset, heading, text, link } = blok;
 
-  const isVideo = (filename = "") =>
-    /\.(mp4|webm|ogg)$/i.test(filename);
+  const isVideo = (filename = "") => /\.(mp4|webm|ogg)$/i.test(filename);
 
   const roundTop = asset?.filename ? "rounded-t-none" : "rounded-t-xl";
 
@@ -26,6 +20,7 @@ const MediaCard = ({ blok }) => {
               poster={asset.poster?.filename || undefined}
             >
               <source src={asset.filename} type="video/mp4" />
+              Your browser does not support video playback.
             </video>
           ) : (
             <img
@@ -37,19 +32,11 @@ const MediaCard = ({ blok }) => {
         </div>
       )}
 
+      {/* Content */}
       <div className={`flex flex-col gap-6 p-6 text-left ${roundTop}`}>
-        {heading && (
-          <StoryblokComponent
-            blok={{
-              component: "heading",
-              level: "h3",
-              variant: "card",
-              text: heading,
-            }}
-          />
-        )}
+        {heading && ( <StoryblokComponent blok={heading} as="h3" /> )}
 
-        {text && <p>{text}</p>}
+        {text && <p className="text-base text-gray-700">{text}</p>}
 
         {link?.[0] && <LinkBlok blok={link[0]} />}
       </div>
