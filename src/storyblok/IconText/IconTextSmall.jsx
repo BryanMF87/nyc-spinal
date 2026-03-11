@@ -31,8 +31,8 @@ export default function IconTextSmall({ blok }) {
       </div>
 
       {text && (
-        <div className="mt-.5 ml-9">
-          <p className={`text-sm ${color ? "text-default" : "text-white"}`}>
+        <div className="mt-1 ml-9">
+          <p className={`text-sm text-left ${color ? "text-default" : "text-white"}`}>
             {text}
           </p>
         </div>

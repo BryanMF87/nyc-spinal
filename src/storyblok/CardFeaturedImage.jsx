@@ -24,7 +24,7 @@ export default function CardFeaturedImage({ blok }) {
 
             <div className="darkmode absolute bottom-0 left-0 right-0 p-8 text-center">
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">{heading}</h3>
-              {render(text)}
+              <div className="text-white">{render(text)}</div>
             </div>
 
             {decor && (

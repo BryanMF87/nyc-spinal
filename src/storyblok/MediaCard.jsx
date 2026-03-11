@@ -1,4 +1,4 @@
-import { StoryblokComponent } from "@storyblok/react";
+import Heading from "./Heading";
 import LinkBlok from "./LinkBlok";
 
 const MediaCard = ({ blok }) => {
@@ -34,7 +34,14 @@ const MediaCard = ({ blok }) => {
 
       {/* Content */}
       <div className={`flex flex-col gap-6 p-6 text-left ${roundTop}`}>
-        {heading && ( <StoryblokComponent blok={heading} as="h3" /> )}
+         {heading && (
+          <Heading
+            title={heading}
+            as="h3"
+            variant="card"
+            color="text-primary"
+          />
+        )}
 
         {text && <p className="text-base text-gray-700">{text}</p>}
 

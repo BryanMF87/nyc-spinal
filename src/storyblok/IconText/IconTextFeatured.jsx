@@ -1,6 +1,7 @@
 import { storyblokEditable } from "@storyblok/react";
 import { Icon } from "@iconify/react";
 
+
 export default function IconTextFeatured({ blok }) {
   const { icon, heading, text, color } = blok;
 

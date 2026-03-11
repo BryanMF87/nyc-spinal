@@ -6,6 +6,7 @@ const ListItem = ({blok}) => {
         icon,
         icon_color,
         label,
+        text_color
     } = blok;
 
     return (
@@ -14,7 +15,7 @@ const ListItem = ({blok}) => {
                 icon={icon.icon}
                 className={`${icon_color} w-6 h-6`} 
             />
-            <p>{label}</p>
+            <p className={text_color}>{label}</p>
         </div>
     )
 };
