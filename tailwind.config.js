@@ -35,6 +35,7 @@ module.exports = {
           1. Storyblok holds design tokens in Storyblok databases
           2. Tailwind defines tokens and safelists all options
           3. Styles directly applied to component via props (i.e. - blok.background_color = bg-white) 
+          4. Creating themeMap.js for easier conditional styling of elements
         */
 
 

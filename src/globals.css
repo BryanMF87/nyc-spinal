@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
 
-  /* =========================================
-   Base app defaults (VERY minimal)
-  ========================================= */
+/* =========================================================
+BASE LAYER
+Minimal defaults only
+========================================================= */
+
+@layer base {
 
   body {
     @apply font-body antialiased text-default;
@@ -16,86 +18,117 @@
     @apply font-mono;
   }
 
-  /* =========================================
-   Storyblok Rich Text ONLY
-   (This is your CMS typography contract)
-  ========================================= */
+}
+
+
+/* =========================================================
+CMS TYPOGRAPHY (Storyblok Rich Text)
+This defines STRUCTURE, not theme colors
+========================================================= */
+
+@layer components {
 
   .richtext {
     @apply font-body;
   }
 
-  /* Headings */
+  /* Heading structure (no colors here) */
+
   .richtext h1 {
-    @apply text-5xl font-bold leading-[1.25] text-primary md:text-6xl;
+    @apply text-5xl font-bold leading-[1.25] md:text-6xl;
   }
 
   .richtext h2 {
-    @apply text-3xl font-bold leading-[1.25] text-primary;
+    @apply text-3xl font-bold leading-[1.25];
   }
 
   .richtext h3 {
-    @apply text-xl font-bold leading-[1.25] text-primary;
+    @apply text-xl font-bold leading-[1.25];
   }
 
   .richtext h4 {
-    @apply text-lg font-semibold text-primary;
+    @apply text-lg font-semibold;
   }
 
   .richtext h5 {
-    @apply text-base font-semibold leading-6 text-primary;
+    @apply text-base font-semibold leading-6;
   }
 
   .richtext h6 {
-    @apply text-sm font-semibold leading-5 text-primary;
+    @apply text-sm font-semibold leading-5;
   }
 
-  /* Prevent bold text from changing fonts */
-  .richtext h1 b,
-  .richtext h2 b,
-  .richtext h3 b,
-  .richtext h4 b,
-  .richtext h5 b,
-  .richtext h6 b,
-  .richtext h1 strong,
-  .richtext h2 strong,
-  .richtext h3 strong,
-  .richtext h4 strong,
-  .richtext h5 strong,
-  .richtext h6 strong {
+  /* Prevent bold tags from changing fonts */
+
+  .richtext :is(h1,h2,h3,h4,h5,h6) :is(b,strong) {
     font-family: inherit;
   }
 
   /* Body text */
+
   .richtext p {
-    @apply text-lg leading-relaxed text-default;
+    @apply text-lg leading-relaxed;
   }
 
   .richtext li {
-    @apply ml-5 mb-2 list-disc marker:text-secondary;
+    @apply ml-5 mb-2 list-disc;
   }
 
   .richtext a {
-    @apply text-secondary underline cursor-pointer;
+    @apply underline cursor-pointer;
   }
 
-  .richtext a:hover {
+  /* Consistent spacing between CMS elements */
+
+  .richtext > * + * {
+    @apply mt-4;
+  }
+
+}
+
+
+/* =========================================================
+THEME SYSTEM - themeClass.js
+Controlled by parent components
+========================================================= */
+
+@layer components {
+
+  /* LIGHT THEME (all other bg options) */
+
+  .theme-light :is(.heading, p, li) {
+    @apply text-default;
+  }
+
+  .theme-light .richtext :is(h1,h2,h3,h4,h5,h6) {
+    @apply text-primary;
+  }
+
+  .theme-light .richtext a {
     @apply text-secondary;
   }
 
-  /* =========================================
-   Dark / gradient sections (scoped)
-  ========================================= */
-
-  .darkmode .richtext,
-  .bg-gradient .richtext {
-    h1, h2, h3, h4, h5, h6, p, a {
-      color: #fff;
-    }
+  .theme-light li::marker {
+    @apply text-secondary;
   }
 
-  .darkmode .richtext a:hover,
-  .bg-gradient .richtext a:hover {
-    color: #bae6fd;
+
+  /* DARK THEME (bg-gradient) */
+
+  .theme-dark :is(.heading, p, li) {
+    @apply text-white;
   }
+
+  .theme-dark .richtext :is(h1,h2,h3,h4,h5,h6) {
+    @apply text-white;
+  }
+
+  .theme-dark .richtext a {
+    @apply text-accent;
+  }
+
+  .theme-dark li::marker {
+    @apply text-white;
+  }
+
 }
