@@ -1,4 +1,5 @@
 import { StoryblokComponent } from "@storyblok/react";
+import Heading from "./Heading";
 
 export default function SimpleDoctorCard({ blok }) {
   return (
@@ -15,8 +16,8 @@ export default function SimpleDoctorCard({ blok }) {
 
       {/* Doctor Info */}
       <div className="p-6 text-left">
-        <h3 className="text-xl font-bold text-[#003666] mb-2">{blok.name}</h3>
-        <p className="text-gray-600">{blok.title}</p>
+        <Heading title={blok.name} variant="card" as="h3" />
+        <p className="mt-2">{blok.title}</p>
       </div>
 
       {/* Social Icons */}

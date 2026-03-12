@@ -9,7 +9,7 @@ const MediaCard = ({ blok }) => {
   const roundTop = asset?.filename ? "rounded-t-none" : "rounded-t-xl";
 
   return (
-    <div className="flex flex-col h-fit overflow-hidden shadow-lg bg-white rounded-xl">
+    <div className="flex flex-col h-fit overflow-hidden shadow-lg bg-white rounded-xl theme-light">
       {/* Media */}
       {asset?.filename?.trim() && (
         <div className="relative bg-gray-100 w-full h-48 rounded-t-xl">
@@ -39,11 +39,10 @@ const MediaCard = ({ blok }) => {
             title={heading}
             as="h3"
             variant="card"
-            color="text-primary"
           />
         )}
 
-        {text && <p className="text-base text-gray-700">{text}</p>}
+        {text && <p>{text}</p>}
 
         {link?.[0] && <LinkBlok blok={link[0]} />}
       </div>

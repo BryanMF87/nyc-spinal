@@ -15,8 +15,8 @@ const IconifyIcon = ({ blok, size = "w-6 h-6" }) => {
 
   return (
     <div className={`${boxClasses} shrink-0 inline-flex items-center justify-center`}>
-      <Icon icon={icon.icon} 
-        className={`${size} ${text_color} block`}
+      <Icon icon={icon} 
+        className={`icon ${size} ${text_color} block`}
       />
     </div>
   )

@@ -7,7 +7,7 @@ export default function FeatureBanner({ blok }) {
   return (
     <section
       {...storyblokEditable(blok)}
-      className="bg-gradient rounded-3xl p-12 text-white"
+      className="bg-gradient rounded-3xl p-12 text-white theme-dark"
     >
       {headings.length > 0 && (
         <HeadingSection

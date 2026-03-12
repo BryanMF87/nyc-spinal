@@ -6,6 +6,7 @@ export function getThemeClass(background) {
   const darkBackgrounds = [
     "bg-primary",
     "bg-gradient",
+    "bg-accent",
   ];
 
   return darkBackgrounds.includes(background)

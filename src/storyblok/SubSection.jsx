@@ -1,4 +1,5 @@
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
+import Heading from "./Heading";
 
 export default function SubSection({ blok }) {
 
@@ -13,10 +14,10 @@ export default function SubSection({ blok }) {
         {...storyblokEditable(blok)}
         className={`w-full text-left`}
     >
-        {heading && (<h2 className="mb-6">{heading}</h2>)}
+        {heading && (<Heading title={heading} variant="section" as="h2" />)}
 
         {/* Body block */}
-        <div className="flex flex-col gap-6"v>
+        <div className="mt-6 flex flex-col gap-6"v>
           {body?.map((nestedBlok) => (
             <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
           ))}

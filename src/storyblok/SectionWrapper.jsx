@@ -1,4 +1,5 @@
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
+import { getThemeClass } from "./themeClass.js";
 
 export default function SectionWrapper({ blok }) {
 
@@ -11,6 +12,8 @@ export default function SectionWrapper({ blok }) {
     width,
     gap
   } = blok;
+
+  const themeClass = getThemeClass(background_color);
 
   const widthOptions = {
     small: "max-w-3xl",
@@ -35,7 +38,7 @@ export default function SectionWrapper({ blok }) {
   return (
     <section
         {...storyblokEditable(blok)}
-        className={`relative w-full overflow-hidden ${background_color} ${text_align}`}
+        className={`relative w-full overflow-hidden ${background_color} ${themeClass} ${text_align}`}
     >
 
       {/* Background layer */}

@@ -96,15 +96,23 @@ Controlled by parent components
 
   /* LIGHT THEME (all other bg options) */
 
-  .theme-light :is(.heading, p, li) {
-    @apply text-default;
+  .theme-light :is(.heading, h1, h2, h3, h4, h5, h6) {
+    @apply text-primary;
   }
 
   .theme-light .richtext :is(h1,h2,h3,h4,h5,h6) {
     @apply text-primary;
   }
 
+  .theme-light :is(p, li) {
+    @apply text-default;
+  }
+
   .theme-light .richtext a {
+    @apply text-secondary;
+  }
+
+  .theme-light :is(.icon, .link) {
     @apply text-secondary;
   }
 
@@ -115,7 +123,7 @@ Controlled by parent components
 
   /* DARK THEME (bg-gradient) */
 
-  .theme-dark :is(.heading, p, li) {
+  .theme-dark :is(.heading, h1, h2, h3, h4, h5, h6, p, li) {
     @apply text-white;
   }
 
@@ -123,7 +131,19 @@ Controlled by parent components
     @apply text-white;
   }
 
+  .theme-dark :is(p, li, .link) {
+    @apply text-white;
+  }
+
+  .theme-dark .link:hover {
+    @apply text-light;
+  }
+
   .theme-dark .richtext a {
+    @apply text-accent;
+  }
+
+  .theme-dark .icon {
     @apply text-accent;
   }
 

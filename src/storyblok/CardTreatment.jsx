@@ -12,7 +12,7 @@ const CardTreatment = ({blok}) => {
     return (
             <Link
                 to={link}
-                className="block group relative bg-white rounded-xl shadow-lg overflow-hidden w-full h-64 flex-shrink-0 transition-all duration-500 hover:shadow-2xl hover:scale-105"
+                className="block group relative bg-white rounded-xl shadow-lg overflow-hidden w-full h-64 flex-shrink-0 transition-all duration-500 hover:shadow-2xl hover:scale-105 theme-dark"
             >
                 <div className="absolute inset-0">
                   {image && 

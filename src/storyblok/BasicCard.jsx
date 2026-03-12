@@ -3,6 +3,7 @@ import { getThemeClass } from "./themeClass.js";
 import IconifyIcon from "./IconifyIcon";
 import Heading from "./Heading";
 
+
 export function BasicCard({ blok }) {
   const {
     icon,
@@ -13,14 +14,18 @@ export function BasicCard({ blok }) {
     shadow,
   } = blok;
 
-  const shadowClass = shadow ? "shadow-lg" : "";
-  
   const themeClass = getThemeClass(background_color);
 
-  const Icon = icon?.[0] && (
+  const shadowClass = shadow ? "shadow-lg" : "";
+
+  const CardHeading = heading && (
+    <Heading title={heading} as="h3" variant="card" />
+  );
+
+  const Icon = icon.icon && (
     <IconifyIcon
-      blok={icon[0]}
-      size={layout === "stack icon" ? "h-8 w-auto" : "h-6 w-6"}
+      blok={icon}
+      size={layout === "stack icon" ? "h-10 w-auto" : "h-6 w-6"}
     />
   );
 
@@ -28,32 +33,50 @@ export function BasicCard({ blok }) {
     <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
   ));
 
-
   return (
-    <div
-      {...storyblokEditable(blok)}
-      className={`${background_color} ${themeClass} ${shadowClass} p-6 rounded-2xl space-y-4`}
-    >
-      {layout === "stack icon" ? (
-        <>
-          {Icon && <div className="w-fit">{Icon}</div>}
-          {heading && <Heading blok={heading} />}
-          <div className="space-y-4">{Body}</div>
-        </>
-      ) : (
-        <>
+    <>
+      {/* Default layout */}
+      {layout === "default" && (
+        <div
+          {...storyblokEditable(blok)}
+          className={`${background_color} ${themeClass} ${shadowClass} p-6 rounded-2xl flex flex-col gap-4`}
+        >
           <div className="flex items-center gap-2">
             {Icon}
-            {heading && <Heading blok={heading} />}
+            {CardHeading}
+          </div>
+          {Body}
+        </div>
+      )}
+
+      {/* Stacked icon layout */}
+      {layout === "stack icon" && (
+        <div
+          {...storyblokEditable(blok)}
+          className={`${background_color} ${themeClass} ${shadowClass} p-6 rounded-2xl flex flex-col items-start gap-2`}
+        >
+          {Icon}
+          {CardHeading}
+          {Body}
+        </div>
+      )}
+
+      {/* Indent body layout */}
+      {layout === "indent body" && (
+        <div
+          {...storyblokEditable(blok)}
+          className={`${background_color} ${themeClass} ${shadowClass} p-6 rounded-2xl`}
+        >
+          <div className="flex items-center space-x-4">
+            {Icon}
+            {CardHeading}
           </div>
 
-          {layout === "indent body" ? (
-            <div className="pl-16 space-y-4">{Body}</div>
-          ) : (
-            <div className="space-y-4">{Body}</div>
-          )}
-        </>
+          <div className="pl-16">
+            {Body}
+          </div>
+        </div>
       )}
-    </div>
+    </>
   );
 }

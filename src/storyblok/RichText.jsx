@@ -14,7 +14,7 @@ const RichText = ({ blok }) => {
     lg: "max-w-4xl",
   };
 
-  const widthClass = widthOptions[max_width];
+  const widthClass = widthOptions[max_width] || "max-w-none";
 
    const alignClass =
     text_align === "text-center"

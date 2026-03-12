@@ -86,6 +86,7 @@ import MegaCTABanner from './storyblok/MegaCTABanner';
 import FeatureBanner from './storyblok/FeatureBanner';
 import ListItem from './storyblok/ListItem';
 import MediaBlock from './storyblok/MediaBlock';
+import SectionCard from './storyblok/SectionCard';
 
 // import Storyblok components here
 storyblokInit({
@@ -175,6 +176,7 @@ storyblokInit({
         link_card: LinkCard,
         richtext: RichText,
         ruffle_player: RufflePlayer,
+        section_card: SectionCard,
         seo: SEO,
         simple_doctor_card: SimpleDoctorCard,
         social_icon: SocialIcon,

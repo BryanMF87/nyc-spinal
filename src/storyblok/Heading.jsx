@@ -4,9 +4,9 @@ import { storyblokEditable } from "@storyblok/react";
 
 export default function Heading({
   blok,
-  title ="",
-  variant = "section",
-  color = "text-primary",
+  title,
+  variant,
+  color,
   as,
 }) {
 
@@ -14,9 +14,10 @@ export default function Heading({
   // This sets component-based typography standards for a component-based system
   // The heading component is added in a Storyblok block field for editor control 
   // or directly imported in the front-end for heading text fields
+
   const resolvedTitle = blok?.title || title;
   const resolvedVariant = blok?.variant || variant;
-  const resolvedColor = blok?.color || color;
+  const resolvedColor = blok?.color || color || "inherit";
 
   const Tag = as || "h2";
 

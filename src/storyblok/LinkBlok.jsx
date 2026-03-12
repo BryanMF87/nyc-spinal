@@ -6,7 +6,7 @@ const LinkBlok = ({ blok }) => {
 
   const { link_to, icon_position, text_size } = blok;
 
-  const baseClasses = `inline-flex items-center transition duration-200`;
+  const baseClasses = `inline-flex items-center transition duration-200 link`;
 
   const textSizeClasses = {
     sm: "text-sm",

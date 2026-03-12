@@ -16,7 +16,7 @@ export default function SocialIcon({ blok }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={blok.label || "Social link"}
-      className={`${blok.color || "text-gray-600"} hover:opacity-80 transition`}
+      className="text-secondary hover:opacity-80 transition"
     >
       <Icon
         icon={blok.icon.icon}
