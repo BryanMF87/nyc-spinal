@@ -1,4 +1,5 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
+import Heading from "./Heading";
 
 export default function CtaBanner({ blok }) {
   const {
@@ -28,11 +29,11 @@ export default function CtaBanner({ blok }) {
       className={`${background} ${layoutStyle.alignment} p-8 rounded-2xl`}
     >
       {heading && (
-        <h2 className="mb-4">{heading}</h2>
+        <Heading title={heading} variant="section" as="h2" />
       )}
 
       {text && (
-        <p className={`${layoutStyle.textWidth} text-lg mb-8`}>
+        <p className={`${layoutStyle.textWidth} text-lg mt-4 mb-8`}>
           {text}
         </p>
       )}

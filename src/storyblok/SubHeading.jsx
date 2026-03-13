@@ -13,5 +13,5 @@ export default function SubHeading({ blok }) {
     xl: 'text-xl md:text-3xl'
   }
 
-  return <p className={`${sizeClass[size]} ${color}`}>{title}</p>
+  return <span className={`${sizeClass[size]} ${color}`}>{title}</span>
 }

@@ -1,11 +1,11 @@
+import Heading from "./Heading";
+
 
 const LogoList = ({ blok }) => (
   <div className="mx-auto w-full">
-    <h3 className="text-lg font-semibold text-[#0062B1] mb-6 text-center">
-      {blok.heading}
-    </h3>
+    <Heading title={blok.heading} as="h3" variant="label" />
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center gap-6 mt-4">
       {(blok.logos || []).map((logo) => (
         <div
           key={logo.id}

@@ -25,7 +25,7 @@ export function BasicCard({ blok }) {
   const Icon = icon.icon && (
     <IconifyIcon
       blok={icon}
-      size={layout === "stack icon" ? "h-10 w-auto" : "h-6 w-6"}
+      size={layout === "stack icon" ? "h-10 w-auto" : "h-7 w-7"}
     />
   );
 
@@ -39,7 +39,7 @@ export function BasicCard({ blok }) {
       {layout === "default" && (
         <div
           {...storyblokEditable(blok)}
-          className={`${background_color} ${themeClass} ${shadowClass} p-6 rounded-2xl flex flex-col gap-4`}
+          className={`${background_color} ${themeClass} ${shadowClass} p-6 rounded-2xl items-start flex flex-col gap-4`}
         >
           <div className="flex items-center gap-2">
             {Icon}
@@ -68,11 +68,11 @@ export function BasicCard({ blok }) {
           className={`${background_color} ${themeClass} ${shadowClass} p-6 rounded-2xl`}
         >
           <div className="flex items-center space-x-4">
-            {Icon}
+            <div className="py-2 px-3 rounded-lg box">{Icon}</div>
             {CardHeading}
           </div>
 
-          <div className="pl-16">
+          <div className="pl-16 ml-1">
             {Body}
           </div>
         </div>

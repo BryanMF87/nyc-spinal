@@ -4,7 +4,7 @@ export default function FeaturedCard ({blok}) {
     return (
         <div 
             {...storyblokEditable(blok)}
-            className="bg-gradient p-8 rounded-2xl"
+            className="bg-gradient p-8 rounded-2xl theme-dark"
         >
             <div className="grid md:grid-cols-3 gap-8 items-center">
                 <div className="md:col-span-1">

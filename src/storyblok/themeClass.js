@@ -9,9 +9,13 @@ export function getThemeClass(background) {
     "bg-accent",
   ];
 
-  return darkBackgrounds.includes(background)
+  const theme = darkBackgrounds.includes(background)
     ? "theme-dark"
     : "theme-light";
+
+  const surface = background?.replace("bg-", "surface-");
+
+  return `${theme} ${surface}`;
 }
 
 

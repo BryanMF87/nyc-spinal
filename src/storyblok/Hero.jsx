@@ -70,7 +70,7 @@ const Hero = ({blok}) => {
       
       <div className="relative max-w-6xl mx-auto pt-12 px-4 pb-14 h-fit flex items-center">
         <div className="w-full md:w-2/3 space-y-6 md:space-y-8 py-8 md:py-0">
-          <div className="darkmode relative">
+          <div className="theme-dark relative">
             {blok.body?.map((nestedBlok) => (
               <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
             ))}

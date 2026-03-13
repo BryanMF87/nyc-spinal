@@ -100,7 +100,7 @@ Controlled by parent components
     @apply text-primary;
   }
 
-  .theme-light .richtext :is(h1,h2,h3,h4,h5,h6) {
+  .theme-light .richtext :is(h1,h2,h3,h4,h5,h6, b) {
     @apply text-primary;
   }
 
@@ -127,7 +127,7 @@ Controlled by parent components
     @apply text-white;
   }
 
-  .theme-dark .richtext :is(h1,h2,h3,h4,h5,h6) {
+  .theme-dark .richtext :is(h1,h2,h3,h4,h5,h6, b) {
     @apply text-white;
   }
 
@@ -151,4 +151,13 @@ Controlled by parent components
     @apply text-white;
   }
 
+  .surface-light-blue .box,
+  .surface-gradient .box
+  {
+    @apply bg-white;
+  }
+
+  .surface-white .box {
+    @apply bg-light-blue
+  }
 }
