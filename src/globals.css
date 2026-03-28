@@ -151,10 +151,12 @@ Controlled by parent components
     @apply text-white;
   }
 
-  .surface-light-blue .box,
-  .surface-gradient .box
-  {
+  .surface-light-blue .box {
     @apply bg-white;
+  }
+  
+  .surface-gradient .box {
+    @apply bg-white/10;
   }
 
   .surface-white .box {
