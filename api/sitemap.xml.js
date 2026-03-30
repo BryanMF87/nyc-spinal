@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   try {
     const BASE_URL =
-      process.env.SITE_URL || "https://spinaldisorders.com";
+      process.env.SITE_URL || "https://nyspinaldisorders.com/";
 
     const TOKEN = process.env.STORYBLOK_PROD_TOKEN;
 
@@ -10,30 +10,32 @@ export default async function handler(req, res) {
     }
 
     const response = await fetch(
-      `https://api.storyblok.com/v2/cdn/links?token=${TOKEN}`
+      `https://api.storyblok.com/v2/cdn/stories?token=${TOKEN}&version=published&per_page=100`
     );
 
     if (!response.ok) {
-      throw new Error("Failed to fetch Storyblok links");
+      throw new Error("Failed to fetch Storyblok stories");
     }
 
     const data = await response.json();
 
-    const links = Object.values(data.links);
+    const stories = data.stories || [];
 
-    const pages = links.filter(
-      (link) =>
-        !link.is_folder &&
-        link.published &&
-        !link.slug.startsWith("global")
-    );
+    const pages = stories.filter((story) => {
+      return (
+        story.is_folder === false &&
+        story.full_slug &&
+        !story.full_slug.startsWith("global")
+      );
+    });
 
     const urls = pages
-      .map((page) => {
-        const slug = page.slug === "home" ? "" : page.slug;
+      .map((story) => {
+        const slug =
+          story.full_slug === "home" ? "" : story.full_slug;
 
-        const lastmod = page.published_at
-          ? `<lastmod>${new Date(page.published_at).toISOString()}</lastmod>`
+        const lastmod = story.published_at
+          ? `<lastmod>${new Date(story.published_at).toISOString()}</lastmod>`
           : "";
 
         return `
@@ -50,13 +52,8 @@ export default async function handler(req, res) {
 ${urls}
 </urlset>`;
 
-    // ✅ headers BEFORE send
     res.setHeader("Content-Type", "text/xml");
-    res.setHeader(
-      "Cache-Control",
-      "s-maxage=3600, stale-while-revalidate"
-    );
-
+    res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate");
     res.status(200).send(xml);
   } catch (error) {
     console.error(error);
