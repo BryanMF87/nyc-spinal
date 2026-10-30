@@ -1,10 +1,10 @@
-import { StoryblokComponent } from "@storyblok/react";
+import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 
 const Footer = ({ blok }) => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 relative overflow-hidden" {...blok}>
+    <footer className="bg-gray-900 relative overflow-hidden" {...storyblokEditable(blok)}>
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -right-24 -top-24 w-96 h-96 bg-blue-500 rounded-full opacity-5"></div>
