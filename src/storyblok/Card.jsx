@@ -1,4 +1,4 @@
-import { StoryblokComponent } from "@storyblok/react";
+import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 
 const Card = ({ blok }) => {
   const {
@@ -51,7 +51,7 @@ const Card = ({ blok }) => {
   /\.(mp4|webm|ogg)$/i.test(filename);
 
   return (
-    <div className={`card flex flex-col h-fit ${shadowClass} ${roundedClass} overflow-hidden`}>
+    <div {...storyblokEditable(blok)} className={`card flex flex-col h-fit ${shadowClass} ${roundedClass} overflow-hidden`}>
       {/* ✅ Top Media (Image OR Video) */}
         {image?.filename?.trim() && (
           <div

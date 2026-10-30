@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StoryblokComponent } from "@storyblok/react";
+import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import HeaderItemMobile from "./HeaderItemMobile";
@@ -8,7 +8,7 @@ const Header = ({ blok }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="relative bg-white shadow-md z-50">
+    <nav {...storyblokEditable(blok)} className="relative bg-white shadow-md z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* Logo */}

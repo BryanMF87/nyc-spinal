@@ -1,3 +1,5 @@
+import { storyblokEditable } from "@storyblok/react";
+
 export default function SubHeading({ blok }) {
 
   const {
@@ -13,5 +15,5 @@ export default function SubHeading({ blok }) {
     xl: 'text-xl md:text-3xl'
   }
 
-  return <span className={`${sizeClass[size]} ${color}`}>{title}</span>
+  return <span {...storyblokEditable(blok)} className={`${sizeClass[size]} ${color}`}>{title}</span>
 }

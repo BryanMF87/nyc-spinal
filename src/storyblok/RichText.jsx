@@ -1,4 +1,5 @@
 import { render } from "storyblok-rich-text-react-renderer";
+import { storyblokEditable } from "@storyblok/react";
 
 const RichText = ({ blok }) => {
 
@@ -22,7 +23,7 @@ const RichText = ({ blok }) => {
       : text_align || "text-left";
 
   return (
-    <div className={`richtext space-y-4 ${alignClass} ${widthClass}`}>
+    <div {...storyblokEditable(blok)} className={`richtext space-y-4 ${alignClass} ${widthClass}`}>
       {render(blok.text)}
     </div>
   );
