@@ -66,6 +66,12 @@ Developers can work using localhost to -
 - Validate in Visual Editor
 - Publish content when ready
 
+##### Local HTTPS setup
+The Visual Editor preview URL is https://localhost:3010/. `.env.local` sets PORT=3010, HTTPS=true and points SSL_CRT_FILE / SSL_KEY_FILE at the mkcert certificates.
+- One-time setup in the project root: `mkcert -install` then `mkcert localhost` (creates localhost.pem and localhost-key.pem, which are git-ignored)
+- Run `npm start`, no separate proxy needed
+- In Chrome, allow "Local network access" and "Apps on device" for app.storyblok.com, or the editor can't load localhost
+
 # Design
 
 ## Color design tokens
