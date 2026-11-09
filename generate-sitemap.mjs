@@ -2,16 +2,18 @@
 // Run this before your build: node generate-sitemap.mjs
 // It fetches all published stories from Storyblok and writes public/sitemap.xml
 
-import "dotenv/config";
 import { writeFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env.local" });
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────────
-const STORYBLOK_TOKEN = process.env.STORYBLOK_PROD_TOKEN;
-if (!STORYBLOK_TOKEN) throw new Error("STORYBLOK_PROD_TOKEN not found in .env");
+const STORYBLOK_TOKEN = process.env.REACT_APP_STORYBLOK_PUBLIC_TOKEN;
+if (!STORYBLOK_TOKEN) throw new Error("STORYBLOK_PUBLIC_TOKEN not found in .env");
 const BASE_URL = process.env.SITE_URL || "https://spinaldisorders.com";
-const FOLDERS = ["", "conditions", "procedures"]; // root + your two folders
+const FOLDERS = ["", "conditions", "procedures"]; // root + two folders
 // ───────────────────────────────────────────────────────────────────────────────
 
 const __dirname = dirname(fileURLToPath(import.meta.url));

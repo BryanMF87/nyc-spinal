@@ -9,7 +9,9 @@ function App() {
 
   const location = useLocation();
 
-  const globalSettings = useStoryblok("global-settings");
+  const globalSettings = useStoryblok("global-settings", {
+    version: process.env.REACT_APP_STORYBLOK_VERSION,
+  });
 
   const headerBlok = globalSettings?.content?.body?.find(
     (blok) => blok.component === "header"

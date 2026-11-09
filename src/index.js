@@ -88,9 +88,28 @@ import ListItem from './storyblok/ListItem';
 import MediaBlock from './storyblok/MediaBlock';
 import SectionCard from './storyblok/SectionCard';
 
-// import Storyblok components here
+
+const storyblokVersion = process.env.REACT_APP_STORYBLOK_VERSION;
+
+if (!["draft", "published"].includes(storyblokVersion)) {
+  throw new Error(
+    'REACT_APP_STORYBLOK_VERSION must be either "draft" or "published".'
+  );
+}
+
+const storyblokAccessToken =
+  storyblokVersion === "draft"
+    ? process.env.REACT_APP_STORYBLOK_PREVIEW_TOKEN
+    : process.env.REACT_APP_STORYBLOK_PUBLIC_TOKEN;
+
+if (!storyblokAccessToken) {
+  throw new Error(
+    `Missing Storyblok access token for ${storyblokVersion} content.`
+  );
+}
+
 storyblokInit({
-  accessToken : process.env.REACT_APP_STORYBLOK_API_TOKEN,
+  accessToken: storyblokAccessToken,
   use: [apiPlugin],
   components: {
 

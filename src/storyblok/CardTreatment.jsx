@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { storyblokEditable } from "@storyblok/react";
 
 const CardTreatment = ({blok}) => {
 
@@ -11,10 +12,16 @@ const CardTreatment = ({blok}) => {
 
     return (
             <Link
-                to={link}
+                to={
+                  link?.cached_url
+                    ? link.cached_url.startsWith("/")
+                      ? link.cached_url
+                      : `/${link.cached_url}`
+                    : link?.url || "#"
+                }
                 className="block group relative bg-white rounded-xl shadow-lg overflow-hidden w-full h-64 flex-shrink-0 transition-all duration-500 hover:shadow-2xl hover:scale-105 theme-dark"
             >
-                <div className="absolute inset-0">
+                <div {...storyblokEditable(blok)} className="absolute inset-0">
                   {image && 
                     <img
                       src={image.filename}

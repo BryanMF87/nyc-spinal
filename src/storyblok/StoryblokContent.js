@@ -16,7 +16,7 @@ function StoryblokContent() {
   const slug = location.pathname === "/" ? "home" : location.pathname.slice(1); // remove leading "/"
   
   const story = useStoryblok(slug, { 
-    version: "draft", 
+    version: process.env.REACT_APP_STORYBLOK_VERSION, 
     resolve_relations: RELATIONS.join(','),
   });
 
